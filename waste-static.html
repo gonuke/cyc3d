@@ -56,6 +56,12 @@ var area = d3.svg.area()
 var stack = d3.layout.stack()
     .values(function(d) { return d.values; });
 
+// A line generator, for the dark stroke.
+var line = d3.svg.line()
+    .interpolate("monotone")
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.price); });
+
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -105,6 +111,7 @@ d3.tsv("raw-data-run1.tsv", function(error, data) {
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis);
+
 });
 
 </script>
