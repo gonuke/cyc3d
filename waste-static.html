@@ -19,29 +19,38 @@ text {
 <script>
 var chartAttrs = {
   "width": '100%',
-  "height": '300'
+  "height": '400'
 };
+
+var chartMargins = {
+  right: 75
+};
+
+var yLabel = "Waste Volume (tonnes)";
+var willShowControls = false;
 
 // chart 1 function
 d3.json('raw-data-run1.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
-                  .margin({right: 100})
+                  .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
                   .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
-                  .showControls(true)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
     chart.xAxis
+        .axisLabel('Year')
         .tickFormat(function(d) { 
           return d3.time.format('%Y')(new Date(d)) 
     });
  
     chart.yAxis
+        .axisLabel(yLabel)
         .tickFormat(d3.format(',.f'));
  
     d3.select('#chart1 svg')
@@ -59,22 +68,24 @@ d3.json('raw-data-run1.json', function (data) {
 d3.json('raw-data-run3.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
-                  .margin({right: 100})
+                  .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
                   .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
-                  .showControls(true)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
     chart.xAxis
+        .axisLabel('Year')
         .tickFormat(function(d) { 
           return d3.time.format('%Y')(new Date(d)) 
     });
  
     chart.yAxis
+        .axisLabel(yLabel)
         .tickFormat(d3.format(',.f'));
  
     d3.select('#chart2 svg')
@@ -92,22 +103,24 @@ d3.json('raw-data-run3.json', function (data) {
 d3.json('raw-data-run5.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
-                  .margin({right: 100})
+                  .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
                   .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
-                  .showControls(true)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
     chart.xAxis
+        .axisLabel('Year')
         .tickFormat(function(d) { 
           return d3.time.format('%Y')(new Date(d)) 
     });
  
     chart.yAxis
+        .axisLabel(yLabel)
         .tickFormat(d3.format(',.f'));
  
     d3.select('#chart3 svg')
