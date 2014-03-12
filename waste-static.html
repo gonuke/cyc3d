@@ -18,7 +18,7 @@ text {
 <script src="nv.d3.min.js"></script>
 <script>
 var chartAttrs = {
-  "width": '30%',
+  "width": '100%',
   "height": '300'
 };
 
@@ -38,11 +38,11 @@ d3.json('raw-data-run1.json', function (data) {
     //Format x-axis labels with custom function.
     chart.xAxis
         .tickFormat(function(d) { 
-          return d3.time.format('%x')(new Date(d)) 
+          return d3.time.format('%Y')(new Date(d)) 
     });
  
     chart.yAxis
-        .tickFormat(d3.format(',.2f'));
+        .tickFormat(d3.format(',.f'));
  
     d3.select('#chart1 svg')
       .datum(data)
@@ -71,11 +71,11 @@ d3.json('raw-data-run3.json', function (data) {
     //Format x-axis labels with custom function.
     chart.xAxis
         .tickFormat(function(d) { 
-          return d3.time.format('%x')(new Date(d)) 
+          return d3.time.format('%Y')(new Date(d)) 
     });
  
     chart.yAxis
-        .tickFormat(d3.format(',.2f'));
+        .tickFormat(d3.format(',.f'));
  
     d3.select('#chart2 svg')
       .datum(data)
@@ -104,11 +104,11 @@ d3.json('raw-data-run5.json', function (data) {
     //Format x-axis labels with custom function.
     chart.xAxis
         .tickFormat(function(d) { 
-          return d3.time.format('%x')(new Date(d)) 
+          return d3.time.format('%Y')(new Date(d)) 
     });
  
     chart.yAxis
-        .tickFormat(d3.format(',.2f'));
+        .tickFormat(d3.format(',.f'));
  
     d3.select('#chart3 svg')
       .datum(data)
@@ -123,13 +123,13 @@ d3.json('raw-data-run5.json', function (data) {
 </script>
 </head>
 <body>
-  <div id="chart1">
+  <div id="chart1" style="width:33%;float:left;">
     <svg></svg>
   </div>
-  <div id="chart2">
+  <div id="chart2" style="width:33%;float:left;">
     <svg></svg>
   </div>
-  <div id="chart3">
+  <div id="chart3" style="width:33%;float:left;">
     <svg></svg>
   </div>
 </body>
