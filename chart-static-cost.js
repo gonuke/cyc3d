@@ -7,20 +7,24 @@ var chartMargins = {
   right: 75
 };
 
-var yLabel = "Waste (tonnes)";
+var yLabel = "Cost (Millions of USD)";
 var willShowControls = false;
+var willHaveGuidelines = false;
+
 
 // chart 1 function
-d3.json('raw-data-run1-waste.json', function (data) {
+d3.json('raw-data-run1-cost.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
-                  .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                  .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
                   .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .interactive(false)
+                  .useVoronoi(false)
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
@@ -46,16 +50,18 @@ d3.json('raw-data-run1-waste.json', function (data) {
 });
 
 // chart 2 function
-d3.json('raw-data-run3-waste.json', function (data) {
+d3.json('raw-data-run3-cost.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
-                  .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                  .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
                   .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .interactive(false)
+                  .useVoronoi(false)
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
@@ -81,16 +87,18 @@ d3.json('raw-data-run3-waste.json', function (data) {
 });
 
 // chart 3 function
-d3.json('raw-data-run5-waste.json', function (data) {
+d3.json('raw-data-run5-cost.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
-                  .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                  .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
                   .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .interactive(false)
+                  .useVoronoi(false)
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.

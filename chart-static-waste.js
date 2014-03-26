@@ -9,6 +9,7 @@ var chartMargins = {
 
 var yLabel = "Waste (tonnes)";
 var willShowControls = false;
+var willHaveGuidelines = false;
 
 // chart 1 function
 d3.json('raw-data-run1-waste.json', function (data) {
@@ -17,10 +18,12 @@ d3.json('raw-data-run1-waste.json', function (data) {
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
-                  .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                  .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
                   .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .interactive(false)
+                  .useVoronoi(false)
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
@@ -52,10 +55,12 @@ d3.json('raw-data-run3-waste.json', function (data) {
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
-                  .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                  .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
                   .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .interactive(false)
+                  .useVoronoi(false)
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
@@ -87,10 +92,12 @@ d3.json('raw-data-run5-waste.json', function (data) {
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
-                  .useInteractiveGuideline(true)    //Tooltips which show all data points. Very nice!
+                  .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
                   .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
+                  .interactive(false)
+                  .useVoronoi(false)
                   .clipEdge(true);
  
     //Format x-axis labels with custom function.
