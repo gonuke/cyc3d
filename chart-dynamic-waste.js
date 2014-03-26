@@ -11,7 +11,7 @@ var yLabel = "Waste Volume (tonnes)";
 var willShowControls = false;
 
 // chart 1 function
-d3.json('raw-data-run1.json', function (data) {
+d3.json('raw-data-run1-waste.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
                   .margin(chartMargins)
@@ -46,7 +46,7 @@ d3.json('raw-data-run1.json', function (data) {
 });
 
 // chart 2 function
-d3.json('raw-data-run3.json', function (data) {
+d3.json('raw-data-run3-waste.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
                   .margin(chartMargins)
@@ -81,7 +81,7 @@ d3.json('raw-data-run3.json', function (data) {
 });
 
 // chart 3 function
-d3.json('raw-data-run5.json', function (data) {
+d3.json('raw-data-run5-waste.json', function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
                   .margin(chartMargins)
