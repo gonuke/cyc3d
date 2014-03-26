@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <style type="text/css">
+
+text {
+  font-size: 11px;
+  pointer-events: none;
+}
+
+text.parent {
+  fill: #1f77b4;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #999;
+  pointer-events: all;
+}
+
+circle.parent {
+  fill: #1f77b4;
+  fill-opacity: .1;
+  stroke: steelblue;
+}
+
+circle.parent:hover {
+  stroke: #ff7f0e;
+  stroke-width: .5px;
+}
+
+circle.child {
+  pointer-events: none;
+}
+
+  </style>
+</head>
+<body>
+  <script type="text/javascript" src="d3.v3.js"></script>
+  <script type="text/javascript" src="info-dynamic-waste.js"></script>
+  <div id="chart1" style="width:33%;float:left;">
+    <h3 style="text-align:center;">Year 2000</h3>
+  </div>
+  <div id="chart2" style="width:33%;float:left;">
+    <h3 style="text-align:center;">Year 2050</h3>
+  </div>
+  <div id="chart3" style="width:33%;float:left;">
+    <h3 style="text-align:center;">Year 2100</h3>
+  </div>
+  <div style="text-align:center;">
+    <h2 style="width:49%;float:left;"><br/><br/>Waste Volumes by Year</h2>
+    <img style="width:49%;float:left;vertical-align:text-bottom;" src="New_DOE_Logo_Color_042808.png"/>
+  </div>
+  </body>
+</html>
