@@ -22,7 +22,7 @@ var year1 = d3.select("body").insert("svg:svg", "h2")
   .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-d3.json("year2000.json", function(data) {
+d3.json("year2000-waste.json", function(data) {
   node = root = data;
   var nodes = pack.nodes(root);
   year1.selectAll("circle")
@@ -80,7 +80,7 @@ var year2 = d3.select("body").insert("svg:svg", "h2")
   .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-d3.json("year2050.json", function(data) {
+d3.json("year2050-waste.json", function(data) {
   node = root = data;
   var nodes = pack.nodes(root);
   year2.selectAll("circle")
@@ -138,7 +138,7 @@ var year3 = d3.select("body").insert("svg:svg", "h2")
   .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-d3.json("year2100.json", function(data) {
+d3.json("year2100-waste.json", function(data) {
   node = root = data;
   var nodes = pack.nodes(root);
   year3.selectAll("circle")
