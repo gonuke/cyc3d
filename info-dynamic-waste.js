@@ -27,6 +27,8 @@ function load_fc1(fname) {
     node = root = data;
     var nodes = pack.nodes(root);
     fc1.selectAll("circle")
+      .remove();
+    fc1.selectAll("circle")
       .data(nodes)
       .enter().append("svg:circle")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -35,6 +37,8 @@ function load_fc1(fname) {
       .attr("r", function(d) { return d.r; })
       .on("click", function(d) { return zoom1(node == d ? root : d); });
 
+    fc1.selectAll("text")
+      .remove();
     fc1.selectAll("text")
       .data(nodes)
       .enter().append("svg:text")
@@ -89,6 +93,8 @@ function load_fc2(fname) {
     node = root = data;
     var nodes = pack.nodes(root);
     fc2.selectAll("circle")
+      .remove();
+    fc2.selectAll("circle")
       .data(nodes)
       .enter().append("svg:circle")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -97,6 +103,8 @@ function load_fc2(fname) {
       .attr("r", function(d) { return d.r; })
       .on("click", function(d) { return zoom2(node == d ? root : d); });
 
+    fc2.selectAll("text")
+      .remove();
     fc2.selectAll("text")
       .data(nodes)
       .enter().append("svg:text")
@@ -151,6 +159,8 @@ function load_fc3(fname) {
     node = root = data;
     var nodes = pack.nodes(root);
     fc3.selectAll("circle")
+      .remove();
+    fc3.selectAll("circle")
       .data(nodes)
       .enter().append("svg:circle")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -159,6 +169,8 @@ function load_fc3(fname) {
       .attr("r", function(d) { return d.r; })
       .on("click", function(d) { return zoom3(node == d ? root : d); });
 
+    fc3.selectAll("text")
+      .remove();
     fc3.selectAll("text")
       .data(nodes)
       .enter().append("svg:text")
@@ -197,3 +209,14 @@ function zoom3(d, i) {
 }
 
 load_fc3("years/info-raw-data-run5-2000-waste.json");
+
+function load_fcs(year) {
+  load_fc1("years/info-raw-data-run1-" + year + "-waste.json");
+  load_fc2("years/info-raw-data-run3-" + year + "-waste.json");
+  load_fc3("years/info-raw-data-run5-" + year + "-waste.json");
+}
+
+function yearUpdate(year) {
+  document.querySelector('#yearlabel').value = year;
+  load_fcs(year);
+}
