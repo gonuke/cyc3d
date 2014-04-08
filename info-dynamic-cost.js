@@ -16,16 +16,16 @@ var pack = d3.layout.pack()
 // Time step 1 
 //
 
-var year1 = d3.select("body").insert("svg:svg", "h2")
+var fc1 = d3.select("body").insert("svg:svg", "h2")
     .attr("width", w)
     .attr("height", h)
   .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-d3.json("year2000-cost.json", function(data) {
+d3.json("info-raw-data-run1-2000_2050_2100-cost.json", function(data) {
   node = root = data;
   var nodes = pack.nodes(root);
-  year1.selectAll("circle")
+  fc1.selectAll("circle")
       .data(nodes)
     .enter().append("svg:circle")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -34,7 +34,7 @@ d3.json("year2000-cost.json", function(data) {
       .attr("r", function(d) { return d.r; })
       .on("click", function(d) { return zoom1(node == d ? root : d); });
 
-  year1.selectAll("text")
+  fc1.selectAll("text")
       .data(nodes)
     .enter().append("svg:text")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -53,7 +53,7 @@ function zoom1(d, i) {
   x.domain([d.x - d.r, d.x + d.r]);
   y.domain([d.y - d.r, d.y + d.r]);
 
-  var t = year1.transition()
+  var t = fc1.transition()
       .duration(d3.event.altKey ? 7500 : 750);
 
   t.selectAll("circle")
@@ -74,16 +74,16 @@ function zoom1(d, i) {
 // Time step 2 
 //
 
-var year2 = d3.select("body").insert("svg:svg", "h2")
+var fc2 = d3.select("body").insert("svg:svg", "h2")
     .attr("width", w)
     .attr("height", h)
   .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-d3.json("year2050-cost.json", function(data) {
+d3.json("info-raw-data-run3-2000_2050_2100-cost.json", function(data) {
   node = root = data;
   var nodes = pack.nodes(root);
-  year2.selectAll("circle")
+  fc2.selectAll("circle")
       .data(nodes)
     .enter().append("svg:circle")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -92,7 +92,7 @@ d3.json("year2050-cost.json", function(data) {
       .attr("r", function(d) { return d.r; })
       .on("click", function(d) { return zoom2(node == d ? root : d); });
 
-  year2.selectAll("text")
+  fc2.selectAll("text")
       .data(nodes)
     .enter().append("svg:text")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -111,7 +111,7 @@ function zoom2(d, i) {
   x.domain([d.x - d.r, d.x + d.r]);
   y.domain([d.y - d.r, d.y + d.r]);
 
-  var t = year2.transition()
+  var t = fc2.transition()
       .duration(d3.event.altKey ? 7500 : 750);
 
   t.selectAll("circle")
@@ -132,16 +132,16 @@ function zoom2(d, i) {
 // Time step 3
 //
 
-var year3 = d3.select("body").insert("svg:svg", "h2")
+var fc3 = d3.select("body").insert("svg:svg", "h2")
     .attr("width", w)
     .attr("height", h)
   .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-d3.json("year2100-cost.json", function(data) {
+d3.json("info-raw-data-run5-2000_2050_2100-cost.json", function(data) {
   node = root = data;
   var nodes = pack.nodes(root);
-  year3.selectAll("circle")
+  fc3.selectAll("circle")
       .data(nodes)
     .enter().append("svg:circle")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -150,7 +150,7 @@ d3.json("year2100-cost.json", function(data) {
       .attr("r", function(d) { return d.r; })
       .on("click", function(d) { return zoom3(node == d ? root : d); });
 
-  year3.selectAll("text")
+  fc3.selectAll("text")
       .data(nodes)
     .enter().append("svg:text")
       .attr("class", function(d) { return d.children ? "parent" : "child"; })
@@ -169,7 +169,7 @@ function zoom3(d, i) {
   x.domain([d.x - d.r, d.x + d.r]);
   y.domain([d.y - d.r, d.y + d.r]);
 
-  var t = year3.transition()
+  var t = fc3.transition()
       .duration(d3.event.altKey ? 7500 : 750);
 
   t.selectAll("circle")
