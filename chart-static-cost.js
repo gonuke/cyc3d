@@ -10,6 +10,7 @@ var chartMargins = {
 var yLabel = "Cost (Millions of USD)";
 var willShowControls = false;
 var willHaveGuidelines = false;
+var yMax = 140000;
 
 
 // chart 1 function
@@ -19,6 +20,7 @@ d3.json('raw-data-run1-cost.json', function (data) {
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
+                  .yDomain([0, yMax])
                   .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
@@ -56,6 +58,7 @@ d3.json('raw-data-run3-cost.json', function (data) {
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
+                  .yDomain([0, yMax])
                   .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
@@ -93,6 +96,7 @@ d3.json('raw-data-run5-cost.json', function (data) {
                   .margin(chartMargins)
                   .x(function(d) { return d[0] })   //We can modify the data accessor functions...
                   .y(function(d) { return d[1] })   //...in case your data is formatted differently.
+                  .yDomain([0, yMax])
                   .useInteractiveGuideline(willHaveGuidelines)    //Tooltips which show all data points. Very nice!
                   .rightAlignYAxis(true)      //Let's move the y-axis to the right side.
                   .transitionDuration(500)
