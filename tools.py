@@ -34,3 +34,12 @@ def load_kind(filename, kind):
     else:
         raise ValueError("kind must be cost or waste")
     return data
+
+def label_kind(val, kind):
+    if kind == "waste":
+        label = "{0:.1e} t".format(val)
+    elif kind == "cost":
+        label = "${0:.1e}".format(val)
+    else:
+        raise ValueError("kind must be cost or waste")
+    return label

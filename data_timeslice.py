@@ -9,7 +9,7 @@ from pprint import pprint
 
 import numpy as np
 
-from tools import diff_last, cost_val, load_kind
+from tools import diff_last, cost_val, load_kind, label_kind
 
 def json_at_year(filename, year, kind):
     data = load_kind(filename, kind)
@@ -33,12 +33,15 @@ def main_by_year():
     with open(jfname, 'w') as f:
         f.write(s)
 
-def json_at_category(data, category, years):
+CAT_LABEL = "yr {0} - {1}"
+
+def json_at_category(data, category, years, kind):
     j = []
     for row in data:
         if row['year'] not in years:
             continue
-        j.append({'name': str(row['year']), 'size': row[category]})
+        label = CAT_LABEL.format(row['year'], label_kind(row[category], kind))
+        j.append({'name': label, 'size': row[category]})
     return j
 
 def main_by_fc():
@@ -52,7 +55,8 @@ def main_by_fc():
     j = {'name': "", 'children': []}  # FC level
     for category in data.dtype.names[1:]:
         j['children'].append({'name': category,
-                              'children': json_at_category(data, category, years),
+                              'children': json_at_category(data, category, 
+                                                           years, ns.kind),
                               })
     jfname = "info-{0}-{1}-{2}.json".format(os.path.splitext(ns.filename)[0], 
                                             "_".join(map(str, ns.years)), ns.kind)
