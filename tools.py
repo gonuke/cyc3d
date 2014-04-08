@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def diff_last(arr):
     """Takes the difference of the last column only, inplace."""
     subtot = np.array(arr[arr.dtype.names[1]])
