@@ -23,3 +23,14 @@ def cost_val(arr):
     for k in arr.dtype.names[1:-1]:
         brr[k] = arr[k] * COSTS[k] / 1e6
     return brr
+
+def load_kind(filename, kind):
+    data = np.recfromcsv(filename, delimiter=',', filling_values=np.nan, 
+                         case_sensitive=True, deletechars='', replace_space=' ')
+    if kind == "waste":
+        diff_last(data)
+    elif kind == "cost":
+        data = cost_val(data)
+    else:
+        raise ValueError("kind must be cost or waste")
+    return data
