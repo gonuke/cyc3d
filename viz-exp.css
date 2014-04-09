@@ -24,19 +24,24 @@ div.logo img { width:50% }
 
 h3 { text-align:center;}
 
+div.charts {
+  position:absolute;
+  top:25%;
+  width:100%;
+}
 
 div.chart1 { 
-  top:25%;
+  position:initial;
   width:33%;
   float:left;
  }
 div.chart2 { 
-  top:25%;
+  position:initial;
   width:33%;
   float:left;
 }
 div.chart3 { 
-  top:25%;
+  position:initial;
   width:33%;
   float:left;
 }
