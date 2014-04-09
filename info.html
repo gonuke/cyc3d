@@ -79,21 +79,24 @@ circle.child {
           the nuclear fuel cycle.</li>
       </ol>
     </div>
-    <div class="logo" id="mit">
-      <img src="http://cloudtimes.org/wp-content/uploads/2013/03/mit-logo.jpg"/>
-    </div>
-    <div class="logo" id="doe">
-      <img src="New_DOE_Logo_Color_042808.png"/>
+    <div class="logo">
+      <div id="mit">
+        <img src="http://cloudtimes.org/wp-content/uploads/2013/03/mit-logo.jpg"/>
+      </div>
+      <div id="doe">
+        <img src="New_DOE_Logo_Color_042808.png"/>
+      </div>
+      <div id="dynamic">
+        <br /><br />
+        <label for=yearsel>Year</label>
+        <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
+               onchange="yearUpdate(value)" autocomplete="off">
+        <output for=yearsel id=yearlabel>2000</output>
+      </div>
     </div>
   </div>
 
   <div class="chartrow">
-    <div id="dynamic">
-      <label for=yearsel>Year</label>
-      <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
-             onchange="yearUpdate(value)" autocomplete="off">
-      <output for=yearsel id=yearlabel>2000</output>
-    </div>
     <div class="chart" id="chart1"><svg></svg><h3>Fuel Cycle 1</h3></div>
     <div class="chart" id="chart2"><svg></svg><h3>Fuel Cycle 2</h3></div>
     <div class="chart" id="chart3"><svg></svg><h3>Fuel Cycle 3</h3></div>

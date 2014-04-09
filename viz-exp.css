@@ -22,7 +22,7 @@ div.logo {
   text-align:center;
 }
 
-div.logo img { width:80% }
+div.logo img {width:80%; text-align: center;}
 
 h3 { text-align:center;}
 
