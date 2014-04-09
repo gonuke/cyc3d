@@ -101,11 +101,9 @@ var chart_node = d3.select(chart_id + " svg")
     .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-    load_data(chart_node,json_data);
-
 }
 
-function info(dynamic,json_data1,json_data2,json_data3)
+function info(dynamic)
 {
 
     add_info(fc1,"#chart1",json_data1);
@@ -137,20 +135,19 @@ function getTypeOrg() {
         {
             divList[j].style.display="block";
         }
-        if (searchList[i] == "cost")
+        if (searchList[i] == "cost" || searchList[i] == "waste")
         {
-            info(dynamic,
-                 "info-raw-data-run1-2000_2050_2100-cost.json",
-                 "info-raw-data-run3-2000_2050_2100-cost.json",
-                 "info-raw-data-run5-2000_2050_2100-cost.json");
-            
-        }
-        if (searchList[i] == "waste")
-        {
-            info(dynamic,
-                 "info-raw-data-run1-2000_2050_2100-waste.json",
-                 "info-raw-data-run3-2000_2050_2100-waste.json",
-                 "info-raw-data-run5-2000_2050_2100-waste.json");
+            info(dynamic);
+            if (dynamic)
+                {
+                    load_fcs(2000,searchList[i]);
+                }
+            else
+            {
+                load_data(fc1,"info-raw-data-run1-2000_2050_2100-"+searchList[i]+"json");
+                load_data(fc2,"info-raw-data-run3-2000_2050_2100-"+searchList[i]+"json");
+                load_data(fc3,"info-raw-data-run5-2000_2050_2100-"+searchList[i]+"json");
+            }
         }
 
     }
@@ -158,10 +155,10 @@ function getTypeOrg() {
 
 }
 
-function load_fcs(year) {
-  load_data(fc1,"years/info-raw-data-run1-" + year + "-cost.json");
-  load_data(fc2,"years/info-raw-data-run3-" + year + "-cost.json");
-  load_data(fc3,"years/info-raw-data-run5-" + year + "-cost.json");
+function load_fcs(year,fcs_type) {
+  load_data(fc1,"years/info-raw-data-run1-" + year + "-"+fcs_type+".json");
+  load_data(fc2,"years/info-raw-data-run3-" + year + "-"+fcs_type+".json");
+  load_data(fc3,"years/info-raw-data-run5-" + year + "-"+fcs_type+".json");
 }
 
 function yearUpdate(year) {
