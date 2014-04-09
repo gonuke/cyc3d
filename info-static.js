@@ -5,7 +5,8 @@ x = d3.scale.linear().range([0, r]),
 y = d3.scale.linear().range([0, r]),
 p = 15,
 node,
-root;
+root,
+fc1,fc2,fc3;
 
 if (typeof String.prototype.startsWith != 'function') {
     // see below for better implementation!
@@ -90,26 +91,26 @@ d3.json(json_data, function(data) {
 });
 }
 
-function add_info(chart_id,json_data)
+function add_info(chart_node,chart_id,json_data)
 {
 
 
-var fc1 = d3.select(chart_id + " svg")
+var chart_node = d3.select(chart_id + " svg")
     .attr("width", w)
     .attr("height", h)
     .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-    load_data(fc1,json_data);
+    load_data(chart_node,json_data);
 
 }
 
 function info(dynamic,json_data1,json_data2,json_data3)
 {
 
-    add_info("#chart1",json_data1);
-    add_info("#chart2",json_data2);
-    add_info("#chart3",json_data3);
+    add_info(fc1,"#chart1",json_data1);
+    add_info(fc2,"#chart2",json_data2);
+    add_info(fc3,"#chart3",json_data3);
 }
 
 function getTypeOrg() {
@@ -155,4 +156,15 @@ function getTypeOrg() {
     }
     
 
+}
+
+function load_fcs(year) {
+  load_data(fc1,"years/info-raw-data-run1-" + year + "-cost.json");
+  load_data(fc2,"years/info-raw-data-run3-" + year + "-cost.json");
+  load_data(fc3,"years/info-raw-data-run5-" + year + "-cost.json");
+}
+
+function yearUpdate(year) {
+  document.querySelector('#yearlabel').value = year;
+  load_fcs(year);
 }
