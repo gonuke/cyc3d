@@ -33,7 +33,7 @@ def main_by_year():
     with open(jfname, 'w') as f:
         f.write(s)
 
-CAT_LABEL = "yr {0} - {1}"
+CAT_LABEL = "year {0}\n{1}"
 
 def json_at_category(data, category, years, kind):
     j = []
