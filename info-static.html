@@ -94,10 +94,14 @@ circle.child {
   </div>
 
   <div class="footer" id="waste">
-    <h2>Mass of Waste by Fuel Cycle</h2>
-  </div>
-  <div class="footer" id="cost">
-    <h2>Cost by Fuel Cycle</h2>
+    <h2 id="waste">Mass of Waste by Fuel Cycle</h2>
+    <h2 id="cost">Cost by Fuel Cycle</h2>
+    <div id="dynamic">
+      <label for=yearsel>Year</label>
+      <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
+             onchange="yearUpdate(value)" autocomplete="off">
+      <output for=yearsel id=yearlabel>2000</output>
+    </div>
   </div>
 
 </body>
