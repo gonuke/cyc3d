@@ -76,7 +76,7 @@ function getTypeOrg() {
 
     var dynamic =false;
 
-    alert("Hello World!")
+    console.log("Hello World!");
 
     for (var i=0;i<searchList.length;i++)
     {
