@@ -1,4 +1,4 @@
-function chart-static(yLabel,yMax,data1,data2,data3)
+function chart_static(yLabel,yMax,data1,data2,data3)
 {
     var chartAttrs = {
         "width": '100%',
@@ -58,7 +58,7 @@ function chart-static(yLabel,yMax,data1,data2,data3)
 
 }
 
-chart-static('Cost in USD',
+chart_static('Cost in USD',
              140000,
              'raw-data-run1-cost.json',
              'raw-data-run3-cost.json',
