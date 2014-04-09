@@ -15,8 +15,6 @@ function chart(dynamic,yLabel,yMax,json_data1,json_data2,json_data3)
     var willBeInteractive = false;
     var willUseVoronoi = false;
     
-    alert(dynamic);
-
     if (dynamic == true)
     {
         willHaveGuidelines = true;
@@ -78,9 +76,10 @@ function getTypeOrg() {
 
     var dynamic =false;
 
+    alert("Hello World!")
+
     for (var i=0;i<searchList.length;i++)
     {
-        alert(searchList[i]);
         if (searchList[i] == "dynamic")
         {
             dynamic = true;
