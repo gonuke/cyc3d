@@ -38,9 +38,9 @@ div.charts div
   height:100%;
 }
 
-div.chart1 { left:0%;  }
-div.chart2 { left:33%; }
-div.chart3 { left:66%; }
+div.chart1 { left:0%;float:left;  }
+div.chart2 { left:33%;float;left; }
+div.chart3 { left:66%;float:left; }
 
 div.footer
 {
