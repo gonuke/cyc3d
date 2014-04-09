@@ -33,14 +33,15 @@ div.charts h3 { text-align:center;}
 
 div.charts div
 {
-  position:absolute;
+  position:relative;
   width:33%;
   height:100%;
+  float:left;
 }
 
-div.chart1 { left:0%;float:left;  }
-div.chart2 { left:33%;float;left; }
-div.chart3 { left:66%;float:left; }
+// div.chart1 { left:0%; }
+// div.chart2 { left:33%;}
+// div.chart3 { left:66%;}
 
 div.footer
 {
