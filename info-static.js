@@ -58,7 +58,6 @@ var pack = d3.layout.pack()
     .padding(p)
 
 
-add_info("#chart1","info-raw-data-run1-2000_2050_2100-cost.json");
 function add_info(chart_id,json_data)
 {
 
@@ -94,80 +93,8 @@ d3.json(json_data, function(data) {
         .call(wrap);
 });
 }
-// 
-// Fuel Cycle 1 
-//
 
-// add_info("info-raw-data-run1-2000_2050_2100-cost.json");
+add_info("#chart1","info-raw-data-run1-2000_2050_2100-cost.json");
+add_info("#chart2","info-raw-data-run3-2000_2050_2100-cost.json");
+add_info("#chart3","info-raw-data-run5-2000_2050_2100-cost.json");
 
-
-// 
-// Fuel Cycle 2 
-//
-
-var fc2 = d3.select("#chart2 svg")
-    .attr("width", w)
-    .attr("height", h)
-    .append("svg:g")
-    .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
-
-d3.json("info-raw-data-run3-2000_2050_2100-cost.json", function(data) {
-    node = root = data;
-    var nodes = pack.nodes(root);
-    fc2.selectAll("circle")
-        .data(nodes)
-        .enter().append("svg:circle")
-        .attr("class", function(d) { return d.children ? "parent" : "child"; })
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; })
-        .attr("r", function(d) { return d.r; })
-        .style("fill", function(d){return colorPicker(d.name)});
-
-    fc2.selectAll("text")
-        .data(nodes)
-        .enter().append("svg:text")
-        .attr("class", function(d) { return d.children ? "parent" : "child"; })
-        .attr("x", function(d) { return d.x; })
-        .attr("y", function(d) { return d.y; })
-        .attr("dy", ".35em")
-        .attr("text-anchor", "middle")
-        .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
-        .text(function(d) { return d.name; })
-        .call(wrap);
-});
-
-
-// 
-// Fuel Cycle 3
-//
-
-var fc3 = d3.select("#chart3 svg")
-    .attr("width", w)
-    .attr("height", h)
-    .append("svg:g")
-    .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
-
-d3.json("info-raw-data-run5-2000_2050_2100-cost.json", function(data) {
-    node = root = data;
-    var nodes = pack.nodes(root);
-    fc3.selectAll("circle")
-        .data(nodes)
-        .enter().append("svg:circle")
-        .attr("class", function(d) { return d.children ? "parent" : "child"; })
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; })
-        .attr("r", function(d) { return d.r; })
-        .style("fill", function(d){return colorPicker(d.name)});
-
-    fc3.selectAll("text")
-        .data(nodes)
-        .enter().append("svg:text")
-        .attr("class", function(d) { return d.children ? "parent" : "child"; })
-        .attr("x", function(d) { return d.x; })
-        .attr("y", function(d) { return d.y; })
-        .attr("dy", ".35em")
-        .attr("text-anchor", "middle")
-        .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
-        .text(function(d) { return d.name; })
-        .call(wrap);
-    });
