@@ -95,11 +95,11 @@ function add_info(chart_node,chart_id)
 {
 
 
-var chart_node = d3.select(chart_id + " svg")
-    .attr("width", w)
-    .attr("height", h)
-    .append("svg:g")
-    .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
+    chart_node = d3.select(chart_id + " svg")
+        .attr("width", w)
+        .attr("height", h)
+        .append("svg:g")
+        .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
 }
 
