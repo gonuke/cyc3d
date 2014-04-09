@@ -88,6 +88,12 @@ circle.child {
   </div>
 
   <div class="chartrow">
+    <div id="dynamic">
+      <label for=yearsel>Year</label>
+      <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
+             onchange="yearUpdate(value)" autocomplete="off">
+      <output for=yearsel id=yearlabel>2000</output>
+    </div>
     <div class="chart" id="chart1"><svg></svg><h3>Fuel Cycle 1</h3></div>
     <div class="chart" id="chart2"><svg></svg><h3>Fuel Cycle 2</h3></div>
     <div class="chart" id="chart3"><svg></svg><h3>Fuel Cycle 3</h3></div>
@@ -96,12 +102,6 @@ circle.child {
   <div class="footer">
     <h2 id="waste">Mass of Waste by Fuel Cycle</h2>
     <h2 id="cost">Cost by Fuel Cycle</h2>
-    <div id="dynamic">
-      <label for=yearsel>Year</label>
-      <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
-             onchange="yearUpdate(value)" autocomplete="off">
-      <output for=yearsel id=yearlabel>2000</output>
-    </div>
   </div>
 
 </body>
