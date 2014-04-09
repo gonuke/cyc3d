@@ -7,6 +7,18 @@ div.heading  {
 }
 div.heading h1 { text-align:center;}
 
+div.intro {
+  width:50%;
+}
+div.logo {
+  top:25%;
+  left:50%;
+  width:50%;
+  text-align:center;
+}
+
+div.logo img { width:50% }
+
 div.charts   {
   top:25%;
   width:100%;
