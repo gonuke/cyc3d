@@ -141,13 +141,13 @@ function getTypeOrg() {
 
             if (dynamic)
                 {
-                    //load_fcs(2000,searchList[i]);
+                    load_fcs(2000,searchList[i]);
                 }
             else
             {
                 load_data(fc1,"info-raw-data-run1-2000_2050_2100-"+searchList[i]+".json");
-                //load_data(fc2,"info-raw-data-run3-2000_2050_2100-"+searchList[i]+".json");
-                //load_data(fc3,"info-raw-data-run5-2000_2050_2100-"+searchList[i]+".json");
+                load_data(fc2,"info-raw-data-run3-2000_2050_2100-"+searchList[i]+".json");
+                load_data(fc3,"info-raw-data-run5-2000_2050_2100-"+searchList[i]+".json");
             }
         }
 
