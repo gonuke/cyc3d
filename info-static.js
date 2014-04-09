@@ -57,7 +57,7 @@ var pack = d3.layout.pack()
     .value(function(d) { return d.size;})
     .padding(p)
 
-var fc1 = d3.select("body").insert("svg:svg", "h2")
+var fc1 = d3.select("#chart1 svg")
     .attr("width", w)
     .attr("height", h)
     .append("svg:g")
