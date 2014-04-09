@@ -11,6 +11,29 @@ var pack = d3.layout.pack()
     .value(function(d) { return d.size;})
     .padding(5)
 
+if (typeof String.prototype.startsWith != 'function') {
+  // see below for better implementation!
+  String.prototype.startsWith = function (str){
+    return this.indexOf(str) == 0;
+  };
+}
+
+var colorMap = {"Wet Storage": "#1f77b4",
+  "Dry Storage": "#aec7e8", 
+  "Repository": "#ffbb78",
+  "Reprocessed Fuel": "#2ca02c"
+  }
+
+function colorPicker(s) {
+  var c = "white";
+  for (var key in colorMap) {
+     if (s.startsWith(key)) {
+       c = colorMap[key];
+       break;
+     };
+  };
+  return c;
+}
 
 // 
 // Fuel Cycle 1 
@@ -35,6 +58,7 @@ function load_fc1(fname) {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
+      .style("fill", function(d){return colorPicker(d.name)})
       .on("click", function(d) { return zoom1(node == d ? root : d); });
 
     fc1.selectAll("text")
@@ -101,6 +125,7 @@ function load_fc2(fname) {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
+      .style("fill", function(d){return colorPicker(d.name)})
       .on("click", function(d) { return zoom2(node == d ? root : d); });
 
     fc2.selectAll("text")
@@ -167,6 +192,7 @@ function load_fc3(fname) {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
+      .style("fill", function(d){return colorPicker(d.name)})
       .on("click", function(d) { return zoom3(node == d ? root : d); });
 
     fc3.selectAll("text")
