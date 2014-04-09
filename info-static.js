@@ -57,13 +57,19 @@ var pack = d3.layout.pack()
     .value(function(d) { return d.size;})
     .padding(p)
 
-var fc1 = d3.select("#chart1 svg")
+
+add_info("#chart1","info-raw-data-run1-2000_2050_2100-cost.json");
+function add_info(chart_id,json_data)
+{
+
+
+var fc1 = d3.select(chart_id + " svg")
     .attr("width", w)
     .attr("height", h)
     .append("svg:g")
     .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
-d3.json("info-raw-data-run1-2000_2050_2100-cost.json", function(data) {
+d3.json(json_data, function(data) {
     node = root = data;
     var nodes = pack.nodes(root);
     fc1.selectAll("circle")
@@ -87,7 +93,7 @@ d3.json("info-raw-data-run1-2000_2050_2100-cost.json", function(data) {
         .text(function(d) { return d.name; })
         .call(wrap);
 });
-
+}
 // 
 // Fuel Cycle 1 
 //
