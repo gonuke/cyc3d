@@ -66,7 +66,7 @@ function getTypeOrg() {
     
     for (var i=0;i<searchList.length;i++)
     {
-        if searchList[i] == "cost"
+        if (searchList[i] == "cost")
         {
             chart_static('Cost in USD',
                          140000,
@@ -74,7 +74,7 @@ function getTypeOrg() {
                          'raw-data-run3-cost.json',
                          'raw-data-run5-cost.json');
         }
-        if searchList[i] == "waste"
+        if (searchList[i] == "waste")
         {
             chart_static('Volume of Waste (Tonnes)',
                          461332,
