@@ -1,4 +1,5 @@
 #!/usr/bin/env python 
+from __future__ import print_function
 import os
 #import json
 import simplejson as json
@@ -44,7 +45,7 @@ def json_at_category(data, category, years, kind):
         j.append({'name': label, 'size': row[category]})
     return j
 
-def main_by_fc():
+def main_by_fc_cat_year():
     parser = ArgumentParser()
     parser.add_argument('filename')
     parser.add_argument('years', nargs='+', type=int)
@@ -64,5 +65,34 @@ def main_by_fc():
     with open(jfname, 'w') as f:
         f.write(s)
 
+YEAR_CAT_LABEL = "{0}\n{1}"
+
+def json_at_year_cat(data, year, kind):
+    #data = np.array(data[data['year'] == year])
+    d = data[data['year'] == year]
+    return [{'name': YEAR_CAT_LABEL.format(k, label_kind(d[k][0], kind)), 
+             'size': d[k][0]} for k in d.dtype.names[1:] if d[k][0] > 0]
+
+def main_by_fc_year_cat():
+    parser = ArgumentParser()
+    parser.add_argument('filename')
+    parser.add_argument('years', nargs='+', type=int)
+    parser.add_argument('-k', dest="kind", help="waste or cost", default="waste")
+    ns = parser.parse_args()
+    years = set(ns.years)
+    data = load_kind(ns.filename, ns.kind)
+    j = {'name': "", 'children': []}  # FC level
+    for year in years:
+        j['children'].append({'name': "year {0}".format(year),
+                              'children': json_at_year_cat(data, year, ns.kind),})
+        with open('/dev/null', 'a') as f:
+            # prevents weired numpy segfault
+            print(data, file=f)
+    jfname = "info-{0}-{1}-{2}.json".format(os.path.splitext(ns.filename)[0], 
+                                            "_".join(map(str, ns.years)), ns.kind)
+    s = json.dumps(j)
+    with open(jfname, 'w') as f:
+        f.write(s)
+
 if __name__ == "__main__":
-    main_by_fc()
+    main_by_fc_year_cat()
