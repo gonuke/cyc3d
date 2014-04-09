@@ -3,7 +3,7 @@ function chart(dynamic,yLabel,yMax,json_data1,json_data2,json_data3)
 {
     var chartAttrs = {
         "width": '100%',
-        "height": '40%'
+        "height": '90%'
     };
     
     var chartMargins = {
