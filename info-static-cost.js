@@ -6,6 +6,30 @@ var w = screen.width * 0.3,
     node,
     root;
 
+if (typeof String.prototype.startsWith != 'function') {
+  // see below for better implementation!
+  String.prototype.startsWith = function (str){
+    return this.indexOf(str) == 0;
+  };
+}
+
+var colorMap = {"Wet Storage": "#1f77b4",
+  "Dry Storage": "#aec7e8", 
+  "Repository": "#ffbb78",
+  "Reprocessed Fuel": "#2ca02c"
+  }
+
+function colorPicker(s) {
+  var c = "white";
+  for (var key in colorMap) {
+     if (s.startsWith(key)) {
+       c = colorMap[key];
+       break;
+     };
+  };
+  return c;
+}
+
 var pack = d3.layout.pack()
     .size([r, r])
     .value(function(d) { return d.size;})
@@ -13,7 +37,7 @@ var pack = d3.layout.pack()
 
 
 // 
-// Time step 1 
+// Fuel Cycle 1 
 //
 
 var fc1 = d3.select("body").insert("svg:svg", "h2")
@@ -32,6 +56,7 @@ d3.json("info-raw-data-run1-2000_2050_2100-cost.json", function(data) {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
+      .style("fill", function(d){return colorPicker(d.name)});
 
   fc1.selectAll("text")
       .data(nodes)
@@ -46,7 +71,7 @@ d3.json("info-raw-data-run1-2000_2050_2100-cost.json", function(data) {
 });
 
 // 
-// Time step 2 
+// Fuel Cycle 2 
 //
 
 var fc2 = d3.select("body").insert("svg:svg", "h2")
@@ -65,6 +90,7 @@ d3.json("info-raw-data-run3-2000_2050_2100-cost.json", function(data) {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
+      .style("fill", function(d){return colorPicker(d.name)});
 
   fc2.selectAll("text")
       .data(nodes)
@@ -80,7 +106,7 @@ d3.json("info-raw-data-run3-2000_2050_2100-cost.json", function(data) {
 
 
 // 
-// Time step 3
+// Fuel Cycle 3
 //
 
 var fc3 = d3.select("body").insert("svg:svg", "h2")
@@ -99,6 +125,7 @@ d3.json("info-raw-data-run5-2000_2050_2100-cost.json", function(data) {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
+      .style("fill", function(d){return colorPicker(d.name)});
 
   fc3.selectAll("text")
       .data(nodes)
