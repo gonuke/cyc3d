@@ -80,10 +80,10 @@ function getTypeOrg() {
 
     for (var i=0;i<searchList.length;i++)
     {
+        alert(searchList[i]);
         if (searchList[i] == "dynamic")
         {
             dynamic = true;
-            alert(searchList[i]);
         }
         
     }
