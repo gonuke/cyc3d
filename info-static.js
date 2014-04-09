@@ -99,7 +99,7 @@ d3.json("info-raw-data-run1-2000_2050_2100-cost.json", function(data) {
 // Fuel Cycle 2 
 //
 
-var fc2 = d3.select("body").insert("svg:svg", "h2")
+var fc2 = d3.select("#chart2 svg")
     .attr("width", w)
     .attr("height", h)
     .append("svg:g")
@@ -135,7 +135,7 @@ d3.json("info-raw-data-run3-2000_2050_2100-cost.json", function(data) {
 // Fuel Cycle 3
 //
 
-var fc3 = d3.select("body").insert("svg:svg", "h2")
+var fc3 = d3.select("#chart3 svg")
     .attr("width", w)
     .attr("height", h)
     .append("svg:g")
