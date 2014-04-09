@@ -1,4 +1,4 @@
-function chart_static(yLabel,yMax,data1,data2,data3)
+function chart_static(yLabel,yMax,json_data1,json_data2,json_data3)
 {
     var chartAttrs = {
         "width": '100%',
