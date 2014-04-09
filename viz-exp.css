@@ -24,29 +24,28 @@ div.logo {
 
 div.logo img { width:50% }
 
-div.charts   {
-  top:25%;
-  height:50%;
-}
-div.charts h3 { text-align:center;}
+h3 { text-align:center;}
 
 
 div.chart1 { 
   position:relative;
+  top:25%;
+  height:50%;
   width:33%;
-  height:100%;
   float:left;
  }
 div.chart2 { 
   position:relative;
-    width:33%;
-  height:100%;
+  top:25%;
+  height:50%;
+  width:33%;
   float:left;
 }
 div.chart3 { 
   position:relative;
-    width:33%;
-  height:100%;
+  top:25%;
+  height:50%;
+  width:33%;
   float:left;
 }
 
