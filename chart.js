@@ -18,8 +18,8 @@ function chart(dynamic,yLabel,yMax,json_data1,json_data2,json_data3)
     if (dynamic == true)
     {
         willHaveGuidelines = true;
-        willBeInteractive = true;
-        willUseVoronoi = true;
+        //willBeInteractive = true;
+        //willUseVoronoi = true;
     }
 
     function add_chart(json_data,chart_id)
