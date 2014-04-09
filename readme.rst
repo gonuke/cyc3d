@@ -7,7 +7,7 @@ Generate data sets with the following commands:
 
 **Infographic Static Waste:**
 
-.. code-bloc:: bash
+.. code-block:: bash
 
     $ ./data_timeslice.py -k waste raw-data-run1.csv 2000 2050 2100 && \
       ./data_timeslice.py -k waste raw-data-run3.csv 2000 2050 2100 && \
@@ -15,7 +15,7 @@ Generate data sets with the following commands:
 
 **Infographic Static Cost:**
 
-.. code-bloc:: bash
+.. code-block:: bash
 
     $ ./data_timeslice.py -k cost raw-data-run1.csv 2000 2050 2100 && \
       ./data_timeslice.py -k cost raw-data-run3.csv 2000 2050 2100 && \
@@ -23,7 +23,7 @@ Generate data sets with the following commands:
 
 **Infographic Dynamic Waste:**
 
-.. code-bloc:: bash
+.. code-block:: bash
 
     $ ./data_alltimes.py -k waste raw-data-run1.csv && \
       ./data_alltimes.py -k waste raw-data-run3.csv && \
@@ -31,7 +31,7 @@ Generate data sets with the following commands:
 
 **Infographic Dynamic Cost:**
 
-.. code-bloc:: bash
+.. code-block:: bash
 
     $ ./data_alltimes.py -k cost raw-data-run1.csv && \
       ./data_alltimes.py -k cost raw-data-run3.csv && \
