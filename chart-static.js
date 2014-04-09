@@ -58,8 +58,3 @@ function chart_static(yLabel,yMax,json_data1,json_data2,json_data3)
 
 }
 
-chart_static('Cost in USD',
-             140000,
-             'raw-data-run1-cost.json',
-             'raw-data-run3-cost.json',
-             'raw-data-run5-cost.json');

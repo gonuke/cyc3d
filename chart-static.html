@@ -7,12 +7,8 @@
 
 <script src="d3.v3.js"></script>
 <script src="nv.d3.min.js"></script>
-<script>
-function load()
-{
-alert("Page is loaded");
-}
-</script>
+<script src="chart-static.js"></script>
+
 <script type="text/javascript">
   
   function getTypeOrg() {
@@ -28,7 +24,13 @@ alert("Page is loaded");
         divList[j].style.display="block";
       }
      }
-   }
+
+    chart_static('Cost in USD',
+                 140000,
+             'raw-data-run1-cost.json',
+             'raw-data-run3-cost.json',
+             'raw-data-run5-cost.json');
+}
 </script>
 </head>
 
