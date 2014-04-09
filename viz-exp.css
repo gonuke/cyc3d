@@ -27,6 +27,7 @@ h3 { text-align:center;}
 div.charts {
   position:absolute;
   top:25%;
+  height:55%;
   width:100%;
 }
 
