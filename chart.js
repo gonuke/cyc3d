@@ -37,6 +37,7 @@ function chart(dynamic,yLabel,yMax,json_data1,json_data2,json_data3)
                     .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
                     .interactive(willBeInteractive)
                     .useVoronoi(willUseVoronoi)
+                    .color(["#1f77b4", "#aec7e8", "#ffbb78", "#2ca02c"])
                     .clipEdge(true);
                 
                 //Format x-axis labels with custom function.
@@ -106,9 +107,9 @@ function getTypeOrg() {
             chart(dynamic,
                   'Volume of Waste (Tonnes)',
                   461332,
-                  'raw-data-run1-waste.json',
+                  'raw-data-run5-waste.json',
                   'raw-data-run3-waste.json',
-                  'raw-data-run5-waste.json');
+                  'raw-data-run1-waste.json');
         }
 
     }

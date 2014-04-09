@@ -5,6 +5,22 @@ Cyclus Visualization Experiments
 
 Generate data sets with the following commands:
 
+**Chart Waste:**
+
+.. code-block:: bash
+
+    $ ./data_to_json.py -k waste raw-data-run1.csv && \
+      ./data_to_json.py -k waste raw-data-run3.csv && 
+      ./data_to_json.py -k waste raw-data-run5.csv
+
+**Chart Cost:**
+
+.. code-block:: bash
+
+    $ ./data_to_json.py -k cost raw-data-run1.csv && \
+      ./data_to_json.py -k cost raw-data-run3.csv && 
+      ./data_to_json.py -k cost raw-data-run5.csv
+
 **Infographic Static Waste:**
 
 .. code-block:: bash
