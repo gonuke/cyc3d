@@ -101,11 +101,11 @@ function add_info(chart_id)
         .append("svg:g")
         .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
 
+    return new_chart;
 }
 
-function info(dynamic)
+function info()
 {
-
     fc1 = add_info("#chart1");
     fc2 = add_info("#chart2");
     fc3 = add_info("#chart3");
@@ -137,7 +137,8 @@ function getTypeOrg() {
         }
         if (searchList[i] == "cost" || searchList[i] == "waste")
         {
-            info(dynamic);
+            info();
+
             if (dynamic)
                 {
                     //load_fcs(2000,searchList[i]);
