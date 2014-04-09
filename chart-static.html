@@ -9,29 +9,6 @@
 <script src="nv.d3.min.js"></script>
 <script src="chart-static.js"></script>
 
-<script type="text/javascript">
-  
-  function getTypeOrg() {
-     var parser = document.createElement("a");
-     parser.href = document.URL;
-     searchList = parser.search.substring(1).split("&");
-
-     for (var i=0;i<searchList.length;i++)
-     {
-      var divList = document.querySelectorAll("#" + searchList[i]);
-      for (var j=0;j<divList.length;j++)
-      {
-        divList[j].style.display="block";
-      }
-     }
-
-    chart_static('Cost in USD',
-                 140000,
-             'raw-data-run1-cost.json',
-             'raw-data-run3-cost.json',
-             'raw-data-run5-cost.json');
-}
-</script>
 </head>
 
 <body onload="getTypeOrg()">

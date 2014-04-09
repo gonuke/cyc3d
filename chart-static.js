@@ -58,3 +58,37 @@ function chart_static(yLabel,yMax,json_data1,json_data2,json_data3)
 
 }
 
+function getTypeOrg() {
+
+    var parser = document.createElement("a");
+    parser.href = document.URL;
+    searchList = parser.search.substring(1).split("&");
+    
+    for (var i=0;i<searchList.length;i++)
+    {
+        if searchList[i] == "cost"
+        {
+            chart_static('Cost in USD',
+                         140000,
+                         'raw-data-run1-cost.json',
+                         'raw-data-run3-cost.json',
+                         'raw-data-run5-cost.json');
+        }
+        if searchList[i] == "waste"
+        {
+            chart_static('Volume of Waste (Tonnes)',
+                         461332,
+                         'raw-data-run1-waste.json',
+                         'raw-data-run3-waste.json',
+                         'raw-data-run5-waste.json');
+        }
+
+        var divList = document.querySelectorAll("#" + searchList[i]);
+        for (var j=0;j<divList.length;j++)
+        {
+            divList[j].style.display="block";
+        }
+    }
+    
+
+}
