@@ -4,6 +4,7 @@ r = 380,
 x = d3.scale.linear().range([0, r]),
 y = d3.scale.linear().range([0, r]),
 p = 15,
+label_rad = 25,
 node,
 root,
 fc1,fc2,fc3,
@@ -86,7 +87,7 @@ d3.json(json_data, function(data) {
         .attr("y", function(d) { return d.y; })
         .attr("dy", ".35em")
         .attr("text-anchor", "middle")
-        .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
+        .style("opacity", function(d) { return d.r > label_rad ? 1 : 0; })
         .text(function(d) { return d.name; })
         .call(wrap);
 });
