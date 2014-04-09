@@ -3,36 +3,39 @@
 <meta charset="utf-8">
 
 <link href="nv.d3.min.css" rel="stylesheet" type="text/css">
-
-<style>
-body {
-  overflow-y:scroll;
-}
-
-text {
-  font: 12px sans-serif;
-}
-</style>
+<link href="viz-exp.css" rel="stylesheet" type="text/css">
 
 <script src="d3.v3.js"></script>
 <script src="nv.d3.min.js"></script>
 </head>
 <body>
-  <div id="chart1" style="width:33%;float:left;">
-    <svg></svg>
-    <h3 style="text-align:center;">Fuel Cycle 1</h3>
+  <div class="heading">
+    <h1>Fuel Cycle Costs</h1>
+    
+    These figures show the cost of different fuel cycle options, broken down
+    into the following categories:
+    <ol>
+      <li>Capital Costs: The costs to construct all the nuclear reactors that are
+        operating in the fuel cycle.</li>
+      <li>Operating Costs: The costs to operate all the nuclear reactors that are
+        operating in the fuel cycle.</li>
+      <li>Fuel Cycle Costs: All the costs involved in the management of nuclear
+        fuel except dispotal.</li>
+      <li>Disposal Costs: The costs to dispose of all the waste material from
+        the nuclear fuel cycle.</li>
+    </ol>
   </div>
-  <div id="chart2" style="width:33%;float:left;">
-    <svg></svg>
-    <h3 style="text-align:center;">Fuel Cycle 2</h3>
+  
+  <div class="charts">
+    <div class="chart1" id="chart1"><svg></svg><h3>Fuel Cycle 1</h3></div>
+    <div class="chart2" id="chart2"><svg></svg><h3>Fuel Cycle 2</h3></div>
+    <div class="chart3" id="chart3"><svg></svg><h3>Fuel Cycle 3</h3></div>
   </div>
-  <div id="chart3" style="width:33%;float:left;">
-    <svg></svg>
-    <h3 style="text-align:center;">Fuel Cycle 3</h3>
+
+  <div class="footer">
+    <h2>Cost by Fuel Cycle</h2>
+    <img width="25%" src="New_DOE_Logo_Color_042808.png"/>
   </div>
-  <div style="text-align:center;">
-    <h2 style="width:49%;float:left;"><br/><br/>Cost by Fuel Cycle</h2>
-    <img style="width:49%;float:left;vertical-align:text-bottom;" src="New_DOE_Logo_Color_042808.png"/>
-  </div>
+
   <script src="chart-static-cost.js"></script>
 </body>

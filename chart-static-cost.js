@@ -12,9 +12,9 @@ var willShowControls = false;
 var willHaveGuidelines = false;
 var yMax = 140000;
 
-
-// chart 1 function
-d3.json('raw-data-run1-cost.json', function (data) {
+function add_chart(json_data,chart_id)
+{
+d3.json(json_data, function (data) {
   nv.addGraph(function() {
     var chart = nv.models.stackedAreaChart()
                   .margin(chartMargins)
@@ -40,7 +40,7 @@ d3.json('raw-data-run1-cost.json', function (data) {
         .axisLabel(yLabel)
         .tickFormat(d3.format(',.f'));
  
-    d3.select('#chart1 svg')
+    d3.select(chart_id + ' svg')
       .datum(data)
       .attr(chartAttrs)
       .call(chart);
@@ -50,6 +50,10 @@ d3.json('raw-data-run1-cost.json', function (data) {
     return chart;
   });
 });
+}
+
+add_chart('raw-data-run1-cost.json','#chart1');
+
 
 // chart 2 function
 d3.json('raw-data-run3-cost.json', function (data) {
