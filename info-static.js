@@ -55,22 +55,16 @@ function wrap(text, width) {
 var pack = d3.layout.pack()
     .size([r, r])
     .value(function(d) { return d.size;})
-    .padding(p)
+    .padding(p);
 
 
-function add_info(chart_id,json_data)
+function load_data(json_data)
 {
-
-
-var fc1 = d3.select(chart_id + " svg")
-    .attr("width", w)
-    .attr("height", h)
-    .append("svg:g")
-    .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
-
 d3.json(json_data, function(data) {
     node = root = data;
     var nodes = pack.nodes(root);
+    fc1.selectAll("circle")
+        .remove();
     fc1.selectAll("circle")
         .data(nodes)
         .enter().append("svg:circle")
@@ -80,6 +74,8 @@ d3.json(json_data, function(data) {
         .attr("r", function(d) { return d.r; })
         .style("fill", function(d){return colorPicker(d.name)});
     
+    fc1.selectAll("text")
+        .remove();
     fc1.selectAll("text")
         .data(nodes)
         .enter().append("svg:text")
@@ -92,6 +88,19 @@ d3.json(json_data, function(data) {
         .text(function(d) { return d.name; })
         .call(wrap);
 });
+}
+
+function add_info(chart_id,json_data)
+{
+
+
+var fc1 = d3.select(chart_id + " svg")
+    .attr("width", w)
+    .attr("height", h)
+    .append("svg:g")
+    .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
+
+    load_data(json_data);
 }
 
 function info(dynamic,json_data1,json_data2,json_data3)
