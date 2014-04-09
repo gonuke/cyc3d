@@ -4,14 +4,16 @@
 #doe {display:none;}
 
 div.heading  {  
-  left:10%;  width:80%; height: 20%;
+  left:10%;  width:80%; height: 20%; position:absolute;
 }
 div.heading h1 { text-align:center;}
 
 div.intro {
   width:50%;
+  position:absolute;
 }
 div.logo {
+  position:absolute;
   top:25%;
   left:50%;
   width:50%;
