@@ -18,6 +18,7 @@ div.charts div
 {
   position:absolute;
   width:33%;
+  height:100%;
 }
 
 div.chart1 { left:0%;  }
