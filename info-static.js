@@ -91,7 +91,7 @@ d3.json(json_data, function(data) {
 });
 }
 
-function add_info(chart_node,chart_id,json_data)
+function add_info(chart_node,chart_id)
 {
 
 
@@ -106,9 +106,9 @@ var chart_node = d3.select(chart_id + " svg")
 function info(dynamic)
 {
 
-    add_info(fc1,"#chart1",json_data1);
-    add_info(fc2,"#chart2",json_data2);
-    add_info(fc3,"#chart3",json_data3);
+    add_info(fc1,"#chart1");
+    add_info(fc2,"#chart2");
+    add_info(fc3,"#chart3");
 }
 
 function getTypeOrg() {
