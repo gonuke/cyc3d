@@ -83,10 +83,11 @@ function getTypeOrg() {
         if (searchList[i] == "dynamic")
         {
             dynamic = true;
+            alert(searchList[i]);
         }
+        
     }
 
-    alert(dynamic);
     for (var i=0;i<searchList.length;i++)
     {
         var divList = document.querySelectorAll("#" + searchList[i]);
