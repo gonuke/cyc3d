@@ -24,21 +24,18 @@ h3 { text-align:center;}
 
 
 div.chart1 { 
-  position:relative;
   top:25%;
   height:50%;
   width:33%;
   float:left;
  }
 div.chart2 { 
-  position:relative;
   top:25%;
   height:50%;
   width:33%;
   float:left;
 }
 div.chart3 { 
-  position:relative;
   top:25%;
   height:50%;
   width:33%;
