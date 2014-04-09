@@ -86,6 +86,7 @@ function getTypeOrg() {
         }
     }
 
+    alert(dynamic);
     for (var i=0;i<searchList.length;i++)
     {
         var divList = document.querySelectorAll("#" + searchList[i]);
