@@ -18,14 +18,12 @@ alert("Page is loaded");
   function getTypeOrg() {
      var parser = document.createElement("a");
      parser.href = document.URL;
-     alert(parser.href);
-     alert(parser.search);
      searchList = parser.search.substring(1).split("&");
 
      for (var i=0;i<searchList.length;i++)
      {
-      alert(searchList[i]);
       var divList = document.querySelectorAll("#" + searchList[i]);
+      alert(divList.length);
       for (var j=0;j<divList.length;j++)
       {
         divList[j].style.display="block";
