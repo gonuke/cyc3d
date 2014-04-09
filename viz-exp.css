@@ -3,10 +3,6 @@
 #mit {display:none;}
 #doe {display:none;}
 
-div { 
-   position:absolute;
-}
-
 div.heading  {  
   left:10%;  width:80%; height: 20%;
 }
