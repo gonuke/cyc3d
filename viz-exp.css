@@ -32,18 +32,21 @@ div.charts   {
 div.charts h3 { text-align:center;}
 
 
-div.chart1 { left:0%;
-  width:33%;
+div.chart1 { 
+  position:relative;
+    width:33%;
   height:100%;
   float:left;
  }
-div.chart2 { left:33%;
-  width:33%;
+div.chart2 { 
+  position:relative;
+    width:33%;
   height:100%;
   float:left;
 }
-div.chart3 { left:66%;
-  width:33%;
+div.chart3 { 
+  position:relative;
+    width:33%;
   height:100%;
   float:left;
 }
