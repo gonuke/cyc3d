@@ -34,6 +34,7 @@ div.charts {
 div.chart1 { 
   position:initial;
   width:33%;
+  height:100%;
   float:left;
  }
 div.chart2 { 
