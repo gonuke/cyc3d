@@ -1,0 +1,42 @@
+div { 
+   position:absolute;
+}
+
+div.heading  {  
+  left:10%;  width:80%; height: 20%;
+}
+div.heading h1 { text-align:center;}
+
+div.charts   {
+  top:20%;
+  width:100%;
+  height:60%;
+}
+div.charts h3 { text-align:center;}
+
+div.charts div
+{
+  position:absolute;
+  width:33%;
+}
+
+div.chart1 { left:0%;  }
+div.chart2 { left:33%; }
+div.chart3 { left:66%; }
+
+div.footer
+{
+position:absolute;
+top: 80%;
+width:100%;
+height:20%;
+text-align:center;
+}
+
+body {
+  overflow-y:scroll;
+}
+
+text {
+  font: 12px sans-serif;
+}
