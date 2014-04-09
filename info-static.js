@@ -94,7 +94,55 @@ d3.json(json_data, function(data) {
 });
 }
 
-add_info("#chart1","info-raw-data-run1-2000_2050_2100-cost.json");
-add_info("#chart2","info-raw-data-run3-2000_2050_2100-cost.json");
-add_info("#chart3","info-raw-data-run5-2000_2050_2100-cost.json");
+function info(dynamic,json_data1,json_data2,json_data3)
+{
 
+    add_info("#chart1",json_data1);
+    add_info("#chart2",json_data2);
+    add_info("#chart3",json_data3);
+}
+
+function getTypeOrg() {
+
+    var parser = document.createElement("a");
+    parser.href = document.URL;
+    searchList = parser.search.substring(1).split("&");
+
+    var dynamic =false;
+
+    for (var i=0;i<searchList.length;i++)
+    {
+        if (searchList[i] == "dynamic")
+        {
+            dynamic = true;
+        }
+        
+    }
+
+    for (var i=0;i<searchList.length;i++)
+    {
+        var divList = document.querySelectorAll("#" + searchList[i]);
+        for (var j=0;j<divList.length;j++)
+        {
+            divList[j].style.display="block";
+        }
+        if (searchList[i] == "cost")
+        {
+            info(dynamic,
+                 "info-raw-data-run1-2000_2050_2100-cost.json",
+                 "info-raw-data-run3-2000_2050_2100-cost.json",
+                 "info-raw-data-run5-2000_2050_2100-cost.json");
+            
+        }
+        if (searchList[i] == "waste")
+        {
+            info(dynamic,
+                 "info-raw-data-run1-2000_2050_2100-waste.json",
+                 "info-raw-data-run3-2000_2050_2100-waste.json",
+                 "info-raw-data-run5-2000_2050_2100-waste.json");
+        }
+
+    }
+    
+
+}

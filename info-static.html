@@ -4,10 +4,12 @@
 
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
   <link href="nv.d3.min.css" rel="stylesheet" type="text/css">
-  <link href="viz-exp2.css" rel="stylesheet" type="text/css">
+  <link href="viz-exp.css" rel="stylesheet" type="text/css">
 
 <script src="d3.v3.js"></script>
 <script src="nv.d3.min.js"></script>
+<script src="info-static.js"></script>
+
   <style type="text/css">
 
 text {
@@ -43,7 +45,7 @@ circle.child {
 
 </head>
 
-<body>
+<body onload="getTypeOrg();">
   <div class="heading">
     <div class="intro" id="waste">
       <h1>Radioactive Waste from Fuel Cycles</h1>
@@ -97,6 +99,5 @@ circle.child {
   <div class="footer" id="cost">
     <h2>Cost by Fuel Cycle</h2>
   </div>
-<script src="info-static.js"></script>
 
 </body>
