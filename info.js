@@ -6,7 +6,8 @@ y = d3.scale.linear().range([0, r]),
 p = 15,
 node,
 root,
-fc1,fc2,fc3;
+fc1,fc2,fc3,
+chart_type;
 
 if (typeof String.prototype.startsWith != 'function') {
     // see below for better implementation!
@@ -137,11 +138,12 @@ function getTypeOrg() {
         }
         if (searchList[i] == "cost" || searchList[i] == "waste")
         {
+            chart_type = searchList[i];
             info();
 
             if (dynamic)
                 {
-                    load_fcs(2000,searchList[i]);
+                    load_fcs(2000);
                 }
             else
             {
@@ -156,10 +158,10 @@ function getTypeOrg() {
 
 }
 
-function load_fcs(year,fcs_type) {
-  load_data(fc1,"years/info-raw-data-run1-" + year + "-"+fcs_type+".json");
-  load_data(fc2,"years/info-raw-data-run3-" + year + "-"+fcs_type+".json");
-  load_data(fc3,"years/info-raw-data-run5-" + year + "-"+fcs_type+".json");
+function load_fcs(year) {
+  load_data(fc1,"years/info-raw-data-run1-" + year + "-"+chart_type+".json");
+  load_data(fc2,"years/info-raw-data-run3-" + year + "-"+chart_type+".json");
+  load_data(fc3,"years/info-raw-data-run5-" + year + "-"+chart_type+".json");
 }
 
 function yearUpdate(year) {
