@@ -20,3 +20,19 @@ Generate data sets with the following commands:
     $ ./data_timeslice.py -k cost raw-data-run1.csv 2000 2050 2100 && \
       ./data_timeslice.py -k cost raw-data-run3.csv 2000 2050 2100 && \
       ./data_timeslice.py -k cost raw-data-run5.csv 2000 2050 2100
+
+**Infographic Dynamic Waste:**
+
+.. code-bloc:: bash
+
+    $ ./data_alltimes.py -k waste raw-data-run1.csv && \
+      ./data_alltimes.py -k waste raw-data-run3.csv && \
+      ./data_alltimes.py -k waste raw-data-run5.csv
+
+**Infographic Dynamic Cost:**
+
+.. code-bloc:: bash
+
+    $ ./data_alltimes.py -k cost raw-data-run1.csv && \
+      ./data_alltimes.py -k cost raw-data-run3.csv && \
+      ./data_alltimes.py -k cost raw-data-run5.csv

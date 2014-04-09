@@ -3,13 +3,9 @@ var w = screen.width * 0.3,
     r = 380,
     x = d3.scale.linear().range([0, r]),
     y = d3.scale.linear().range([0, r]),
+    p = 15,
     node,
     root;
-
-var pack = d3.layout.pack()
-    .size([r, r])
-    .value(function(d) { return d.size;})
-    .padding(5)
 
 if (typeof String.prototype.startsWith != 'function') {
   // see below for better implementation!
@@ -34,6 +30,32 @@ function colorPicker(s) {
   };
   return c;
 }
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        lines = text.text().split(/\n/).reverse(),
+        line,
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        x = text.attr("x"),
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", x)
+                               .attr("y", y).attr("dy", dy + "em");
+    lineNumber = - Math.floor(lines.length / 2);
+    while (line = lines.pop()) {
+        tspan = text.append("tspan").attr("x", x)
+                    .attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em")
+                    .text(line);
+    }
+  });
+}
+
+var pack = d3.layout.pack()
+    .size([r, r])
+    .value(function(d) { return d.size;})
+    .padding(p);
 
 // 
 // Fuel Cycle 1 
@@ -72,7 +94,8 @@ function load_fc1(fname) {
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
       .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.name; })
+      .call(wrap);
 
     d3.select(window).on("click", function() { zoom1(root); });
   });
@@ -139,7 +162,8 @@ function load_fc2(fname) {
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
       .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.name; })
+      .call(wrap);
 
     d3.select(window).on("click", function() { zoom2(root); });
   });
@@ -206,7 +230,8 @@ function load_fc3(fname) {
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
       .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.name; })
+      .call(wrap);
 
     d3.select(window).on("click", function() { zoom3(root); });
   });

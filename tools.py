@@ -37,7 +37,7 @@ def load_kind(filename, kind):
 
 def label_kind(val, kind):
     if kind == "waste":
-        label = "{0:.1e} t".format(val)
+        label = "{0:.1e} tonnes".format(val)
     elif kind == "cost":
         label = "${0:.1e}".format(val)
     else:

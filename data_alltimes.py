@@ -10,7 +10,7 @@ import numpy as np
 
 from tools import diff_last, cost_val, load_kind, label_kind
 
-CAT_LABEL = "{0} - {1}"
+CAT_LABEL = "{0}\n{1}"
 
 def json_at_year(row, kind):
     return [{'name': CAT_LABEL.format(k, label_kind(row[k], kind)), 'size': row[k]} \
