@@ -1,6 +1,6 @@
 var chartAttrs = {
   "width": '100%',
-  "height": '90%'
+  "height": '80%'
 };
 
 var chartMargins = {
