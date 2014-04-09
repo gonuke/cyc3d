@@ -104,12 +104,12 @@ function getTypeOrg() {
         }
         if (searchList[i] == "waste")
         {
-            chart_static(dynamic,
-                         'Volume of Waste (Tonnes)',
-                         461332,
-                         'raw-data-run1-waste.json',
-                         'raw-data-run3-waste.json',
-                         'raw-data-run5-waste.json');
+            chart(dynamic,
+                  'Volume of Waste (Tonnes)',
+                  461332,
+                  'raw-data-run1-waste.json',
+                  'raw-data-run3-waste.json',
+                  'raw-data-run5-waste.json');
         }
 
     }
