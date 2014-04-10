@@ -165,9 +165,15 @@ function getTypeOrg() {
 }
 
 function load_fcs(year) {
-  load_data(fc1,"years/info-raw-data-run1-" + year + "-"+chart_type+".json");
-  load_data(fc2,"years/info-raw-data-run3-" + year + "-"+chart_type+".json");
-  load_data(fc3,"years/info-raw-data-run5-" + year + "-"+chart_type+".json");
+  if (chart_type == "waste") {
+    load_data(fc1,"years/info-raw-data-run1-" + year + "-"+chart_type+".json");
+    load_data(fc2,"years/info-raw-data-run3-" + year + "-"+chart_type+".json");
+    load_data(fc3,"years/info-raw-data-run5-" + year + "-"+chart_type+".json");
+  } else {
+    load_data(fc1,"years/info-raw-data-run1-new-" + year + "-"+chart_type+".json");
+    load_data(fc2,"years/info-raw-data-run3-new-" + year + "-"+chart_type+".json");
+    load_data(fc3,"years/info-raw-data-run5-new-" + year + "-"+chart_type+".json");
+  }
 }
 
 function yearUpdate(year) {
