@@ -28,7 +28,7 @@ def main():
     elif ns.kind == "cost":
         csv = cost_val(csv)
     elif ns.kind == "newcost":
-        csv = csv
+        ns.kind = "cost"
     else:
         raise ValueError("kind must be cost or waste")
     j = [{"key": k, "values": zip(dates, np.asarray(csv[k], 'f8'))} \
