@@ -97,7 +97,7 @@ function getTypeOrg() {
         {
             chart(dynamic,
                   'Cost in USD',
-                  140000,
+                  35000,
                   'raw-data-run1-cost.json',
                   'raw-data-run3-cost.json',
                   'raw-data-run5-cost.json');
