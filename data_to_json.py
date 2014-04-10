@@ -18,7 +18,7 @@ def year_to_ms(y):
 def main():
     parser = ArgumentParser()
     parser.add_argument('filename')
-    parser.add_argument('-k', dest="kind", help="waste or cost", default="waste")
+    parser.add_argument('-k', dest="kind", help="waste or cost or newcost", default="waste")
     ns = parser.parse_args()
     csv = np.recfromcsv(ns.filename, delimiter=',', filling_values=np.nan, 
                         case_sensitive=True, deletechars='', replace_space=' ')
@@ -27,6 +27,8 @@ def main():
         diff_last(csv)
     elif ns.kind == "cost":
         csv = cost_val(csv)
+    elif ns.kind == "newcost":
+        csv = csv
     else:
         raise ValueError("kind must be cost or waste")
     j = [{"key": k, "values": zip(dates, np.asarray(csv[k], 'f8'))} \
