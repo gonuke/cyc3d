@@ -33,9 +33,9 @@ Generate data sets with the following commands:
 
 .. code-block:: bash
 
-    $ ./data_timeslice.py -k cost raw-data-run1.csv 2000 2050 2100 && \
-      ./data_timeslice.py -k cost raw-data-run3.csv 2000 2050 2100 && \
-      ./data_timeslice.py -k cost raw-data-run5.csv 2000 2050 2100
+    $ ./data_timeslice.py -k cost raw-data-run1-new.csv 2000 2050 2100 && \
+      ./data_timeslice.py -k cost raw-data-run3-new.csv 2000 2050 2100 && \
+      ./data_timeslice.py -k cost raw-data-run5-new.csv 2000 2050 2100
 
 **Infographic Dynamic Waste:**
 
