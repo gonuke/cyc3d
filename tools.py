@@ -30,7 +30,7 @@ def load_kind(filename, kind):
     if kind == "waste":
         diff_last(data)
     elif kind == "cost":
-        data = cost_val(data)
+        pass
     else:
         raise ValueError("kind must be cost or waste")
     return data

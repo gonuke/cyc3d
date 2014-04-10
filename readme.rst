@@ -17,9 +17,9 @@ Generate data sets with the following commands:
 
 .. code-block:: bash
 
-    $ ./data_to_json.py -k cost raw-data-run1.csv && \
-      ./data_to_json.py -k cost raw-data-run3.csv && 
-      ./data_to_json.py -k cost raw-data-run5.csv
+    $ ./data_to_json.py -k cost raw-data-run1-new.csv && \
+      ./data_to_json.py -k cost raw-data-run3-new.csv && \
+      ./data_to_json.py -k cost raw-data-run5-new.csv
 
 **Infographic Static Waste:**
 
