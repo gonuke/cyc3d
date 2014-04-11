@@ -65,8 +65,7 @@
       <div id="info">
         <div id="dynamic">
           <br /><br />
-          <label for=yearsel>Year</label>
-          2000
+          <label for=yearsel><b>Year:</b> 2000</label>
           <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
                  onchange="yearUpdate(value)" autocomplete="off">
           2100<br/>
@@ -77,6 +76,16 @@
   </div>
 
   <div class="chartrow">
+    <div class="legend"><svg><g>
+        <circle cx="100" cy="20" r="20" style="fill: #1f77b4"></circle>
+        <text x="130" y="20" text-anchor="left">Wet Storage</text>
+        <circle cx="500" cy="20" r="20" style="fill: #aec7e8"></circle>
+        <text x="530" y="20" text-anchor="left">Dry Storage</text>
+        <circle cx="900" cy="20" r="20" style="fill: #ffbb78"></circle>
+        <text x="930" y="20" text-anchor="left">Repository</text>
+        <circle cx="1300" cy="20" r="20" style="fill: #2ca02c"></circle>
+        <text x="1330" y="20" text-anchor="left">Reprocessed Fuel</text>
+    </g></svg></div>
     <div class="chart" id="chart1"><svg></svg><h3>Fuel Cycle 1</h3></div>
     <div class="chart" id="chart2"><svg></svg><h3>Fuel Cycle 2</h3></div>
     <div class="chart" id="chart3"><svg></svg><h3>Fuel Cycle 3</h3></div>
@@ -88,3 +97,4 @@
   </div>
 
 </body>
+
