@@ -63,34 +63,34 @@ var pack = d3.layout.pack()
 
 function load_data(chart_node,json_data)
 {
-d3.json(json_data, function(data) {
-    node = root = data;
-    var nodes = pack.nodes(root);
-    chart_node.selectAll("circle")
-        .remove();
-    chart_node.selectAll("circle")
-        .data(nodes)
-        .enter().append("svg:circle")
-        .attr("class", function(d) { return d.children ? "parent" : "child"; })
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; })
-        .attr("r", function(d) { return d.r; })
-        .style("fill", function(d){return colorPicker(d.name)});
-    
-    chart_node.selectAll("text")
-        .remove();
-    chart_node.selectAll("text")
-        .data(nodes)
-        .enter().append("svg:text")
-        .attr("class", function(d) { return d.children ? "parent" : "child"; })
-        .attr("x", function(d) { return d.x; })
-        .attr("y", function(d) { return d.y; })
-        .attr("dy", ".35em")
-        .attr("text-anchor", "middle")
-        .style("opacity", function(d) { return d.r > label_rad ? 1 : 0; })
-        .text(function(d) { return d.name; })
-        .call(wrap);
-});
+    d3.json(json_data, function(data) {
+        node = root = data;
+        var nodes = pack.nodes(root);
+        chart_node.selectAll("circle")
+            .remove();
+        chart_node.selectAll("circle")
+            .data(nodes)
+            .enter().append("svg:circle")
+            .attr("class", function(d) { return d.children ? "parent" : "child"; })
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; })
+            .attr("r", function(d) { return d.r; })
+            .style("fill", function(d){return colorPicker(d.name)});
+        
+        chart_node.selectAll("text")
+            .remove();
+        chart_node.selectAll("text")
+            .data(nodes)
+            .enter().append("svg:text")
+            .attr("class", function(d) { return d.children ? "parent" : "child"; })
+            .attr("x", function(d) { return d.x; })
+            .attr("y", function(d) { return d.y; })
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .style("opacity", function(d) { return d.r > label_rad ? 1 : 0; })
+            .text(function(d) { return d.name; })
+            .call(wrap);
+    });
 }
 
 function add_info(chart_id)
@@ -106,77 +106,54 @@ function add_info(chart_id)
     return new_chart;
 }
 
-function info()
+function load_static(kind)
 {
-    fc1 = add_info("#chart1");
-    fc2 = add_info("#chart2");
-    fc3 = add_info("#chart3");
+    var cost_ver = "";
+
+    if (kind == "cost")
+    {
+        cost_ver = "-new";
+    }
+    load_data(fc1,"info-raw-data-run1" + cost_ver + "-2000_2050_2100-" + kind + ".json");
+    load_data(fc2,"info-raw-data-run3" + cost_ver + "-2000_2050_2100-" + kind + ".json");
+    load_data(fc3,"info-raw-data-run5" + cost_ver + "-2000_2050_2100-" + kind + ".json");
 }
 
-function getTypeOrg() {
-
-    var parser = document.createElement("a");
-    parser.href = document.URL;
-    searchList = parser.search.substring(1).split("&");
-
-    var dynamic =false;
-
-    for (var i=0;i<searchList.length;i++)
-    {
-        if (searchList[i] == "dynamic")
-        {
-            dynamic = true;
-        }
-        
-    }
-
-    for (var i=0;i<searchList.length;i++)
-    {
-        var divList = document.querySelectorAll("#" + searchList[i]);
-        for (var j=0;j<divList.length;j++)
-        {
-            divList[j].style.display="block";
-        }
-        if (searchList[i] == "cost" || searchList[i] == "waste")
-        {
-            chart_type = searchList[i];
-            info();
-
-            if (dynamic)
-                {
-                    load_fcs(2000);
-                }
-            else if (searchList[i] == "waste")
-            {
-                load_data(fc1,"info-raw-data-run1-2000_2050_2100-"+searchList[i]+".json");
-                load_data(fc2,"info-raw-data-run3-2000_2050_2100-"+searchList[i]+".json");
-                load_data(fc3,"info-raw-data-run5-2000_2050_2100-"+searchList[i]+".json");
-            }
-            else {
-                load_data(fc1,"info-raw-data-run1-new-2000_2050_2100-"+searchList[i]+".json");
-                load_data(fc2,"info-raw-data-run3-new-2000_2050_2100-"+searchList[i]+".json");
-                load_data(fc3,"info-raw-data-run5-new-2000_2050_2100-"+searchList[i]+".json");
-            }
-        }
-
-    }
+function load_fcs(kind,year) {
+    var cost_ver = "";
     
-
-}
-
-function load_fcs(year) {
-  if (chart_type == "waste") {
-    load_data(fc1,"years/info-raw-data-run1-" + year + "-"+chart_type+".json");
-    load_data(fc2,"years/info-raw-data-run3-" + year + "-"+chart_type+".json");
-    load_data(fc3,"years/info-raw-data-run5-" + year + "-"+chart_type+".json");
-  } else {
-    load_data(fc1,"years/info-raw-data-run1-new-" + year + "-"+chart_type+".json");
-    load_data(fc2,"years/info-raw-data-run3-new-" + year + "-"+chart_type+".json");
-    load_data(fc3,"years/info-raw-data-run5-new-" + year + "-"+chart_type+".json");
-  }
+    if (kind == "cost")
+    {
+        cost_ver = "-new";
+    }
+    load_data(fc1,"years/info-raw-data-run1" + cost_ver + "-" + year + "-" + kind + ".json");
+    load_data(fc2,"years/info-raw-data-run3" + cost_ver + "-" + year + "-" + kind + ".json");
+    load_data(fc3,"years/info-raw-data-run5" + cost_ver + "-" + year + "-" + kind + ".json");
 }
 
 function yearUpdate(year) {
-  document.querySelector('#yearlabel').value = year;
-  load_fcs(year);
+    document.querySelector('#yearlabel').value = year;
+    load_fcs(chart_type,year);
 }
+
+
+
+function info(dynamic,kind)
+{
+    chart_type = kind;
+    
+    fc1 = add_info("#chart1");
+    fc2 = add_info("#chart2");
+    fc3 = add_info("#chart3");
+
+    
+    if (dynamic)
+    {
+        load_fcs(kind,2000);
+    }
+    else
+    {
+        load_static(kind);
+    }
+}
+

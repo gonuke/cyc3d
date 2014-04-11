@@ -1,5 +1,4 @@
-
-function chart(dynamic,yLabel,yMax,json_data1,json_data2,json_data3)
+function chart(dynamic,kind)
 {
     var chartAttrs = {
         "width": '100%',
@@ -15,14 +14,13 @@ function chart(dynamic,yLabel,yMax,json_data1,json_data2,json_data3)
     var willBeInteractive = false;
     var willUseVoronoi = false;
     
-    if (dynamic == true)
-    {
-        willHaveGuidelines = true;
-        //willBeInteractive = true;
-        //willUseVoronoi = true;
-    }
+    var yLabel = 'Volume of Waste (Tonnes)';
+    var yMax = 475000;
+    var json_data1 = 'raw-data-run5-waste.json';
+    var json_data2 = 'raw-data-run3-waste.json';
+    var json_data3 = 'raw-data-run1-waste.json';
 
-    function add_chart(json_data,chart_id)
+    function add_chart(chart_id,json_data)
     {
         d3.json(json_data, function (data) {
             nv.addGraph(function() {
@@ -62,57 +60,25 @@ function chart(dynamic,yLabel,yMax,json_data1,json_data2,json_data3)
             });
         });
     }
-    
-    add_chart(json_data1,'#chart1');
-    add_chart(json_data2,'#chart2');
-    add_chart(json_data3,'#chart3');
 
-}
-
-function getTypeOrg() {
-
-    var parser = document.createElement("a");
-    parser.href = document.URL;
-    searchList = parser.search.substring(1).split("&");
-
-    var dynamic =false;
-
-    for (var i=0;i<searchList.length;i++)
+    if (kind == "cost")
     {
-        if (searchList[i] == "dynamic")
-        {
-            dynamic = true;
-        }
-        
+        yLabel = 'Cost in USD';
+        yMax = 35000;
+        var json_data1 = 'raw-data-run1-new-cost.json';
+        var json_data2 = 'raw-data-run3-new-cost.json';
+        var json_data3 = 'raw-data-run5-new-cost.json';
     }
 
-    for (var i=0;i<searchList.length;i++)
+    if (dynamic == true)
     {
-        var divList = document.querySelectorAll("#" + searchList[i]);
-        for (var j=0;j<divList.length;j++)
-        {
-            divList[j].style.display="block";
-        }
-        if (searchList[i] == "cost")
-        {
-            chart(dynamic,
-                  'Cost in USD',
-                  35000,
-                  'raw-data-run1-new-cost.json',
-                  'raw-data-run3-new-cost.json',
-                  'raw-data-run5-new-cost.json');
-        }
-        if (searchList[i] == "waste")
-        {
-            chart(dynamic,
-                  'Volume of Waste (Tonnes)',
-                  461332,
-                  'raw-data-run5-waste.json',
-                  'raw-data-run3-waste.json',
-                  'raw-data-run1-waste.json');
-        }
-
+        willHaveGuidelines = true;
+        //willBeInteractive = true;
+        //willUseVoronoi = true;
     }
-    
+
+    add_chart('#chart1',json_data1);
+    add_chart('#chart2',json_data2);
+    add_chart('#chart3',json_data3);
 
 }
