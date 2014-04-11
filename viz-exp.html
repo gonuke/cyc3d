@@ -59,10 +59,15 @@
       </ol>
     </div>
     <div class="logo" id="mit">
-      <img src="http://cloudtimes.org/wp-content/uploads/2013/03/mit-logo.jpg"/>
+      <img id="mit" src="http://cloudtimes.org/wp-content/uploads/2013/03/mit-logo.jpg"/>
+      <img id="doe" src="New_DOE_Logo_Color_042808.png"/>
     </div>
-    <div class="logo" id="doe">
-      <img src="New_DOE_Logo_Color_042808.png"/>
+    <div id="dynamic">
+      <br /><br />
+      <label for=yearsel>Year</label>
+      <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
+             onchange="yearUpdate(value)" autocomplete="off">
+      <output for=yearsel id=yearlabel>2000</output>
     </div>
   </div>
 
