@@ -56,16 +56,24 @@ function wrap(text, width) {
     });
 }
 
-var pack = d3.layout.pack()
-    .size([r, r])
-    .value(function(d) { return d.size;})
-    .padding(p);
+function scaled_pack(v) {
+    var pack = d3.layout.pack()
+        .size([r*v, r*v])
+        .value(function(d) { return d.size;})
+        .padding(p);
+    return pack
+}
 
+var pack = scaled_pack(1.0);
 
 function load_data(chart_node,json_data)
 {
 d3.json(json_data, function(data) {
+    var pack;
     node = root = data;
+    if (chart_node === fc1 && chart_type == "cost") {pack = scaled_pack(19214/28271.0);}
+    else if (chart_node === fc2 && chart_type == "cost") {pack = scaled_pack(23260.0/28271.0);}
+    else {pack = scaled_pack(1.0);}
     var nodes = pack.nodes(root);
     chart_node.selectAll("circle")
         .remove();
