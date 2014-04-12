@@ -8,6 +8,7 @@ label_rad = 25,
 node,
 root,
 fc1,fc2,fc3,
+dynamic = false,
 chart_type;
 
 if (typeof String.prototype.startsWith != 'function') {
@@ -75,6 +76,8 @@ d3.json(json_data, function(data) {
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
         .attr("r", function(d) { return d.r; })
+        .style("stroke-width", function(d) {if (d.children && !dynamic) 
+                                           {return 0}; return 1;})
         .style("fill", function(d){return colorPicker(d.name)});
     
     chart_node.selectAll("text")
@@ -118,8 +121,6 @@ function getTypeOrg() {
     var parser = document.createElement("a");
     parser.href = document.URL;
     searchList = parser.search.substring(1).split("&");
-
-    var dynamic =false;
 
     for (var i=0;i<searchList.length;i++)
     {
