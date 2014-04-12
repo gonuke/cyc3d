@@ -76,7 +76,7 @@ d3.json(json_data, function(data) {
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
         .attr("r", function(d) { return d.r; })
-        .style("stroke-width", function(d) {if (d.children && !dynamic) 
+        .style("stroke-width", function(d) {if (d.children && !dynamic && d.children[0].children) 
                                            {return 0}; return 1;})
         .style("fill", function(d){return colorPicker(d.name)});
     
@@ -86,8 +86,8 @@ d3.json(json_data, function(data) {
         .data(nodes)
         .enter().append("svg:text")
         .attr("class", function(d) { return d.children ? "parent" : "child"; })
-        .attr("x", function(d) { return d.x; })
-        .attr("y", function(d) { return d.y; })
+        .attr("x", function(d) {return d.x;})
+        .attr("y", function(d) { if (d.children) {return d.y - d.r - 20;}; return d.y;})
         .attr("dy", ".35em")
         .attr("text-anchor", "middle")
         .style("opacity", function(d) { return d.r > label_rad ? 1 : 0; })
@@ -161,7 +161,6 @@ function getTypeOrg() {
         }
 
     }
-    
 
 }
 
