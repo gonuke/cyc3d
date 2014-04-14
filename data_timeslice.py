@@ -13,6 +13,7 @@ import numpy as np
 from tools import diff_last, cost_val, load_kind, label_kind
 
 MAX_COST = 28271.0
+
 def json_at_year(filename, year, kind):
     data = load_kind(filename, kind)
     data = np.array(data[data['year'] == year])
