@@ -35,6 +35,10 @@ div.chartrow {
   width:100%;
 }
 
+div.legend svg {
+  height:45px;
+}
+
 div.chart { 
   position:initial;
   width:33%;
