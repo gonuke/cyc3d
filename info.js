@@ -9,6 +9,7 @@ node,
 root,
 fc1,fc2,fc3,
 chart_dyn,
+dynamic = false,
 chart_type;
 
 if (typeof String.prototype.startsWith != 'function') {
@@ -56,11 +57,15 @@ function wrap(text, width) {
     });
 }
 
-var pack = d3.layout.pack()
-    .size([r, r])
-    .value(function(d) { return d.size;})
-    .padding(p);
+function scaled_pack(v) {
+    var pack = d3.layout.pack()
+        .size([r*v, r*v])
+        .value(function(d) { return d.size;})
+        .padding(p);
+    return pack
+}
 
+var pack = scaled_pack(1.0);
 
 function load_data(chart_node,json_data,scale_var)
 {
@@ -89,20 +94,14 @@ function load_data(chart_node,json_data,scale_var)
             .attr("class", function(d) { return d.children ? "parent" : "child"; })
             .attr("x", function(d) { return d.x; })
             .attr("y", function(d) { if (d.children) {return d.y - d.r - 20;}; if (d.r < 21.5) {return d.y + d.r + 10;}; return d.y; })
-//            .attr("dy", ".35em")
             .attr("text-anchor", "middle")
-//            .style("opacity", function(d) { return d.r > label_rad ? 1 : 0; })
             .text(function(d) { if (d.children) {return d.name;}; return d.name.split('\n')[1]; })
             .call(wrap);
     });
-
-
 }
 
 function add_info(chart_id)
 {
-
-
     var new_chart = d3.select(chart_id + " svg")
         .attr("width", w)
         .attr("height", h)
@@ -122,8 +121,8 @@ function load_static(kind)
         cost_ver = "-new";
         vary_run = -2;
     }
-    load_data(fc1,"info-raw-data-run" + (3+vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",0.3);
-    load_data(fc2,"info-raw-data-run" + (3+0).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",0.6);
+    load_data(fc1,"info-raw-data-run" + (3+vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",19214/28271.0);
+    load_data(fc2,"info-raw-data-run" + (3+0).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",23260.0/28271.0);
     load_data(fc3,"info-raw-data-run" + (3-vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
 }
 
@@ -145,8 +144,6 @@ function yearUpdate(year) {
     document.querySelector('#yearlabel').value = year;
     load_fcs(chart_type,year);
 }
-
-
 
 function info(dynamic,kind)
 {
