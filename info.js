@@ -8,6 +8,7 @@ label_rad = 25,
 node,
 root,
 fc1,fc2,fc3,
+chart_dyn,
 chart_type;
 
 if (typeof String.prototype.startsWith != 'function') {
@@ -75,6 +76,8 @@ function load_data(chart_node,json_data)
             .attr("cx", function(d) { return d.x; })
             .attr("cy", function(d) { return d.y; })
             .attr("r", function(d) { return d.r; })
+            .style("stroke-width",function(d) {if (d.children && !chart_dyn)
+                                               {return 0}; return 1;})
             .style("fill", function(d){return colorPicker(d.name)});
         
         chart_node.selectAll("text")
@@ -141,6 +144,7 @@ function yearUpdate(year) {
 function info(dynamic,kind)
 {
     chart_type = kind;
+    chart_dyn = dynamic;
     
     fc1 = add_info("#chart1");
     fc2 = add_info("#chart2");
