@@ -1,6 +1,6 @@
 var w = screen.width * 0.30,
 h = screen.height * 0.40,
-r = 380,
+r = Math.min(w,h)*.9,
 x = d3.scale.linear().range([0, r]),
 y = d3.scale.linear().range([0, r]),
 p = 15,
@@ -62,9 +62,10 @@ var pack = d3.layout.pack()
     .padding(p);
 
 
-function load_data(chart_node,json_data)
+function load_data(chart_node,json_data,scale_var)
 {
     d3.json(json_data, function(data) {
+        pack.size([r*scale_var, r*scale_var]);
         node = root = data;
         var nodes = pack.nodes(root);
         chart_node.selectAll("circle")
@@ -94,6 +95,8 @@ function load_data(chart_node,json_data)
             .text(function(d) { if (d.children) {return d.name;}; return d.name.split('\n')[1]; })
             .call(wrap);
     });
+
+
 }
 
 function add_info(chart_id)
@@ -112,26 +115,30 @@ function add_info(chart_id)
 function load_static(kind)
 {
     var cost_ver = "";
+    var vary_run = +2;
 
     if (kind == "cost")
     {
         cost_ver = "-new";
+        vary_run = -2;
     }
-    load_data(fc1,"info-raw-data-run1" + cost_ver + "-2000_2050_2100-" + kind + ".json");
-    load_data(fc2,"info-raw-data-run3" + cost_ver + "-2000_2050_2100-" + kind + ".json");
-    load_data(fc3,"info-raw-data-run5" + cost_ver + "-2000_2050_2100-" + kind + ".json");
+    load_data(fc1,"info-raw-data-run" + (3+vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",0.3);
+    load_data(fc2,"info-raw-data-run" + (3+0).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",0.6);
+    load_data(fc3,"info-raw-data-run" + (3-vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
 }
 
 function load_fcs(kind,year) {
     var cost_ver = "";
+    var vary_run = +2;
     
     if (kind == "cost")
     {
         cost_ver = "-new";
+        var vary_run = -2;
     }
-    load_data(fc1,"years/info-raw-data-run1" + cost_ver + "-" + year + "-" + kind + ".json");
-    load_data(fc2,"years/info-raw-data-run3" + cost_ver + "-" + year + "-" + kind + ".json");
-    load_data(fc3,"years/info-raw-data-run5" + cost_ver + "-" + year + "-" + kind + ".json");
+    load_data(fc1,"years/info-raw-data-run" + (3+vary_run).toString() + cost_ver + "-" + year + "-" + kind + ".json",(year-2000)*1.0/100);
+    load_data(fc2,"years/info-raw-data-run" + (3+0).toString()  + cost_ver + "-" + year + "-" + kind + ".json",(year-2000)*1.0/100);
+    load_data(fc3,"years/info-raw-data-run" + (3-vary_run).toString()  + cost_ver + "-" + year + "-" + kind + ".json",(year-2000)*1.0/100);
 }
 
 function yearUpdate(year) {
