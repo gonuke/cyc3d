@@ -1,5 +1,5 @@
 var w = screen.width * 0.30,
-h = screen.height * 0.42,
+h = screen.height * 0.40,
 r = 380,
 x = d3.scale.linear().range([0, r]),
 y = d3.scale.linear().range([0, r]),
