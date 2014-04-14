@@ -91,7 +91,7 @@ function load_data(chart_node,json_data)
             .attr("dy", ".35em")
             .attr("text-anchor", "middle")
             .style("opacity", function(d) { return d.r > label_rad ? 1 : 0; })
-            .text(function(d) { return d.name.split("\n")[1]; })
+            .text(function(d) { if (d.children) {return d.name;}; return d.name.split("\n")[1]; })
             .call(wrap);
     });
 }
