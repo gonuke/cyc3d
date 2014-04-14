@@ -88,10 +88,10 @@ function load_data(chart_node,json_data)
             .attr("class", function(d) { return d.children ? "parent" : "child"; })
             .attr("x", function(d) { return d.x; })
             .attr("y", function(d) { if (d.children) {return d.y - d.r - 20;}; return d.y; })
-            .attr("dy", ".35em")
+//            .attr("dy", ".35em")
             .attr("text-anchor", "middle")
 //            .style("opacity", function(d) { return d.r > label_rad ? 1 : 0; })
-            .text(function(d) { if (d.children) {return d.name;}; return d.name; })
+            .text(function(d) { if (d.children) {return d.name;}; return d.name.split('\n')[1]; })
             .call(wrap);
     });
 }
