@@ -35,6 +35,7 @@ function chart(dynamic,kind)
                     .showControls(willShowControls)       //Allow user to choose 'Stacked', 'Stream', 'Expanded' mode.
                     .interactive(willBeInteractive)
                     .useVoronoi(willUseVoronoi)
+                    .showLegend(false)
                     .color(["#1f77b4", "#aec7e8", "#ffbb78", "#2ca02c"])
                     .clipEdge(true);
                 
