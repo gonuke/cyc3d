@@ -12,6 +12,7 @@ import numpy as np
 
 from tools import diff_last, cost_val, load_kind, label_kind
 
+MAX_COST = 28271.0
 def json_at_year(filename, year, kind):
     data = load_kind(filename, kind)
     data = np.array(data[data['year'] == year])
@@ -71,7 +72,8 @@ def json_at_year_cat(data, year, kind):
     #data = np.array(data[data['year'] == year])
     d = data[data['year'] == year]
     return [{'name': YEAR_CAT_LABEL.format(k, label_kind(d[k][0], kind)), 
-             'size': d[k][0]} for k in d.dtype.names[1:] if d[k][0] > 0]
+             'size': d[k][0] / (MAX_COST if kind == "cost" else 1.0)} \
+            for k in d.dtype.names[1:] if d[k][0] > 0]
 
 def main_by_fc_year_cat():
     parser = ArgumentParser()
