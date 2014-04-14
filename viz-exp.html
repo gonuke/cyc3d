@@ -66,17 +66,7 @@
   </div>
 
   <div class="chartrow">
-    <div class="legend"><svg><g>
-        <circle cx="30%" cy="20" r="10" style="fill: #1f77b4"></circle>
-        <text x="32%" y="20" text-anchor="left">Wet Storage</text>
-        <circle cx="40%" cy="20" r="10" style="fill: #aec7e8"></circle>
-        <text x="42%" y="20" text-anchor="left">Dry Storage</text>
-        <circle cx="50%" cy="20" r="10" style="fill: #ffbb78"></circle>
-        <text x="52%" y="20" text-anchor="left">Repository</text>
-        <circle cx="60%" cy="20" r="10" style="fill: #2ca02c"></circle>
-        <text x="62%" y="20" text-anchor="left">Reprocessed Fuel</text>
-    </g></svg></div>
-      <div id="info">
+      <div class="slider" id="info">
         <div id="dynamic">
           <label for=yearsel><b>Year:</b> 2000</label>
           <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
@@ -85,9 +75,19 @@
           <output for=yearsel id=yearlabel>2000</output>
         </div>
       </div>
-    <div class="chart" id="chart1"><svg></svg><h3>Fuel Cycle 1</h3></div>
-    <div class="chart" id="chart2"><svg></svg><h3>Fuel Cycle 2</h3></div>
-    <div class="chart" id="chart3"><svg></svg><h3>Fuel Cycle 3</h3></div>
+    <div class="legend"><svg><g>
+        <circle cx="20%" cy="20" r="10" style="fill: #1f77b4"></circle>
+        <text x="21%" y="20" text-anchor="left">Wet Storage</text>
+        <circle cx="35%" cy="20" r="10" style="fill: #aec7e8"></circle>
+        <text x="36%" y="20" text-anchor="left">Dry Storage</text>
+        <circle cx="50%" cy="20" r="10" style="fill: #ffbb78"></circle>
+        <text x="51%" y="20" text-anchor="left">Repository</text>
+        <circle cx="65%" cy="20" r="10" style="fill: #2ca02c"></circle>
+        <text x="66%" y="20" text-anchor="left">Reprocessed Fuel</text>
+    </g></svg></div>
+    <div class="chart" id="chart1"><svg></svg><h3>Nuclear Fuel Cycle 1</h3></div>
+    <div class="chart" id="chart2"><svg></svg><h3>Nuclear Fuel Cycle 2</h3></div>
+    <div class="chart" id="chart3"><svg></svg><h3>Nuclear Fuel Cycle 3</h3></div>
   </div>
 
   <div class="footer">
