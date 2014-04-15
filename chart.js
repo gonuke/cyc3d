@@ -14,8 +14,8 @@ function chart(dynamic,kind)
     var willBeInteractive = false;
     var willUseVoronoi = false;
     
-    var yLabel = 'Volume of Waste (Tonnes)';
-    var yMax = 475000;
+    var yLabel = 'Mass of Waste (Tonnes)';
+    var yMax = 500000;
     var json_data1 = 'raw-data-run5-waste.json';
     var json_data2 = 'raw-data-run3-waste.json';
     var json_data3 = 'raw-data-run1-waste.json';
@@ -64,8 +64,8 @@ function chart(dynamic,kind)
 
     if (kind == "cost")
     {
-        yLabel = 'Cost in USD';
-        yMax = 35000;
+        yLabel = 'Cost in Millions of USD';
+        yMax = 30000;
         var json_data1 = 'raw-data-run1-new-cost.json';
         var json_data2 = 'raw-data-run3-new-cost.json';
         var json_data3 = 'raw-data-run5-new-cost.json';
