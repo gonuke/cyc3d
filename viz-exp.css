@@ -4,11 +4,16 @@
 #doe {display:none;}
 #dynamic {display:none;}
 #info {display:none;}
+#hover_legend {display:none;}
 
 div.heading  {  
-  left:5%;  width:90%; height: 30%; position:absolute;
-  overflow: auto;
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  width: 1400px;
+  height: 200px;
 }
+
 div.heading h1 { text-align:center;}
 
 div.intro {
@@ -27,10 +32,10 @@ div.logo img {width:80%; text-align: center;}
 
 h3 { text-align:center;}
 
-div.chartrow {
+div.legendrow {
   position:absolute;
-  top:30%;
-  height:65%;
+  top:230px;
+  height:50px;
   width:100%;
 }
 
@@ -38,7 +43,7 @@ div.slider {
     position: absolute;
     text-align: center;
     top: 0px;
-    left: 0%;
+    left: 0px;
     width: 25%;
     height:50px;
 }
@@ -49,40 +54,62 @@ div.legend {
     left: 25%;
     width: 75%;
     height: 50px;
+    text-align: center;
 }
 
-div.legend svg {
-  height:45px;
+
+div#hover_legend {
+    position: absolute;
+    top: 370px;
+    left: 350px;
+    width: 800px;
+    hieght: 350px;
+    background-color: yellow;
+    z-index: 1000;
 }
+
+div.chartrow {
+  position:absolute;
+  top:310px;
+  height:590px;
+  width:100%;
+}
+
 
 div.chart { 
-  position:absolute;
-  top: 50px;
+  top: 180px;
   width:33%;
-  height:65%;
+  height:530px;
 }
 
 div.chart#chart1 {
   left: 0%;
+  float: left;
 }    
 div.chart#chart2 {
   left: 33%;
+  float: left;
 }    
 div.chart#chart3 {
   left: 66%;
+  float: left;
 }    
 
 div.footer
 {
 position:absolute;
-top: 90%;
+top: 870px;
 width:100%;
-height:5%;
+height:80px;
 text-align:center;
 }
 
 body {
   overflow-y:scroll;
+}
+
+svg text {
+    font-size: 15px;
 }
 
 text {
@@ -91,7 +118,12 @@ text {
 }
 
 text.legend {
-  font-size: 14px;
+  font-size: 18px;
+}
+
+text.nv-axislabel {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 text.parent {
