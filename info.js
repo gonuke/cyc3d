@@ -1,6 +1,6 @@
-var w = screen.width * 0.30,
-h = screen.height * 0.40,
-r = Math.min(w,h)*.9,
+var w = Math.min(screen.height*0.60,500),
+h = w,
+r = h*0.9,
 x = d3.scale.linear().range([0, r]),
 y = d3.scale.linear().range([0, r]),
 p = 15,
@@ -121,8 +121,8 @@ function load_static(kind)
         cost_ver = "-new";
         vary_run = -2;
     }
-    load_data(fc1,"info-raw-data-run" + (3+vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",19214/28271.0);
-    load_data(fc2,"info-raw-data-run" + (3+0).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",23260.0/28271.0);
+    load_data(fc1,"info-raw-data-run" + (3+vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
+    load_data(fc2,"info-raw-data-run" + (3+0).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
     load_data(fc3,"info-raw-data-run" + (3-vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
 }
 
@@ -135,9 +135,9 @@ function load_fcs(kind,year) {
         cost_ver = "-new";
         var vary_run = -2;
     }
-    load_data(fc1,"years/info-raw-data-run" + (3+vary_run).toString() + cost_ver + "-" + year + "-" + kind + ".json",(year-2000)*1.0/100);
-    load_data(fc2,"years/info-raw-data-run" + (3+0).toString()  + cost_ver + "-" + year + "-" + kind + ".json",(year-2000)*1.0/100);
-    load_data(fc3,"years/info-raw-data-run" + (3-vary_run).toString()  + cost_ver + "-" + year + "-" + kind + ".json",(year-2000)*1.0/100);
+    load_data(fc1,"years/info-raw-data-run" + (3+vary_run).toString() + cost_ver + "-" + year + "-" + kind + ".json",1.0);
+    load_data(fc2,"years/info-raw-data-run" + (3+0).toString()  + cost_ver + "-" + year + "-" + kind + ".json",1.0);
+    load_data(fc3,"years/info-raw-data-run" + (3-vary_run).toString()  + cost_ver + "-" + year + "-" + kind + ".json",1.0);
 }
 
 function yearUpdate(year) {
