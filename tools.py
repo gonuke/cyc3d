@@ -1,5 +1,8 @@
 import numpy as np
 
+MAX_COST = 28271.0
+MAX_WASTE = 469135.5172555465
+
 def diff_last(arr):
     """Takes the difference of the last column only, inplace."""
     subtot = np.array(arr[arr.dtype.names[1]])

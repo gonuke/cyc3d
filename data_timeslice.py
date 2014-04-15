@@ -10,9 +10,7 @@ from pprint import pprint
 
 import numpy as np
 
-from tools import diff_last, cost_val, load_kind, label_kind
-
-MAX_COST = 28271.0
+from tools import diff_last, cost_val, load_kind, label_kind, MAX_COST, MAX_WASTE
 
 def json_at_year(filename, year, kind):
     data = load_kind(filename, kind)
@@ -73,7 +71,7 @@ def json_at_year_cat(data, year, kind):
     #data = np.array(data[data['year'] == year])
     d = data[data['year'] == year]
     return [{'name': YEAR_CAT_LABEL.format(k, label_kind(d[k][0], kind)), 
-             'size': d[k][0] / (MAX_COST if kind == "cost" else 1.0)} \
+             'size': d[k][0] / (MAX_COST if kind == "cost" else MAX_WASTE)} \
             for k in d.dtype.names[1:] if d[k][0] > 0]
 
 def main_by_fc_year_cat():
@@ -84,13 +82,14 @@ def main_by_fc_year_cat():
     ns = parser.parse_args()
     years = set(ns.years)
     data = load_kind(ns.filename, ns.kind)
-    j = {'name': "", 'children': []}  # FC level
+    j = {'name': "", 'children': [], 'scale': 0.0}  # FC level
     for year in years:
         j['children'].append({'name': "year {0}".format(year),
                               'children': json_at_year_cat(data, year, ns.kind),})
         with open('/dev/null', 'a') as f:
-            # prevents weired numpy segfault
+            # prevents weird numpy segfault
             print(data, file=f)
+        j['scale'] = max(j['scale'], sum([c['size'] for c in j['children'][-1]['children']]))
     jfname = "info-{0}-{1}-{2}.json".format(os.path.splitext(ns.filename)[0], 
                                             "_".join(map(str, ns.years)), ns.kind)
     s = json.dumps(j)

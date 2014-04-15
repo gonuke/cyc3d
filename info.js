@@ -70,7 +70,7 @@ var pack = scaled_pack(1.0);
 function load_data(chart_node,json_data,scale_var)
 {
     d3.json(json_data, function(data) {
-        pack.size([r*scale_var, r*scale_var]);
+        pack.size([r*data.scale, r*data.scale]);
         node = root = data;
         var nodes = pack.nodes(root);
         chart_node.selectAll("circle")
@@ -122,9 +122,9 @@ function load_static(kind)
         cost_ver = "-new";
         vary_run = -2;
     }
-    load_data(fc1,"info-raw-data-run" + (3+vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
-    load_data(fc2,"info-raw-data-run" + (3+0).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
-    load_data(fc3,"info-raw-data-run" + (3-vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json",1.0);
+    load_data(fc1,"info-raw-data-run" + (3+vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json");
+    load_data(fc2,"info-raw-data-run" + (3+0).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json");
+    load_data(fc3,"info-raw-data-run" + (3-vary_run).toString() +  cost_ver + "-2000_2050_2100-" + kind + ".json");
 }
 
 function load_fcs(kind,year) {
@@ -136,9 +136,9 @@ function load_fcs(kind,year) {
         cost_ver = "-new";
         var vary_run = -2;
     }
-    load_data(fc1,"years/info-raw-data-run" + (3+vary_run).toString() + cost_ver + "-" + year + "-" + kind + ".json",1.0);
-    load_data(fc2,"years/info-raw-data-run" + (3+0).toString()  + cost_ver + "-" + year + "-" + kind + ".json",1.0);
-    load_data(fc3,"years/info-raw-data-run" + (3-vary_run).toString()  + cost_ver + "-" + year + "-" + kind + ".json",1.0);
+    load_data(fc1,"years/info-raw-data-run" + (3+vary_run).toString() + cost_ver + "-" + year + "-" + kind + ".json");
+    load_data(fc2,"years/info-raw-data-run" + (3+0).toString()  + cost_ver + "-" + year + "-" + kind + ".json");
+    load_data(fc3,"years/info-raw-data-run" + (3-vary_run).toString()  + cost_ver + "-" + year + "-" + kind + ".json");
 }
 
 function yearUpdate(year) {
