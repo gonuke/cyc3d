@@ -46,3 +46,13 @@ def label_kind(val, kind):
     else:
         raise ValueError("kind must be cost or waste")
     return label
+
+def outter_reproccessed(parent):
+    kids = {"name": "", "children": []}
+    for i in range(len(parent)-1, -1, -1):
+        if parent[i]['name'].startswith("Reprocessed"):
+            continue
+        kids['children'].append(parent[i])
+        del parent[i]
+    parent.append(kids)
+
