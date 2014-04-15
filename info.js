@@ -94,8 +94,9 @@ function load_data(chart_node,json_data,scale_var)
             .attr("class", function(d) { return d.children ? "parent" : "child"; })
             .attr("x", function(d) { return d.x; })
             .attr("y", function(d) { if (d.children) {return d.y - d.r - 20;}; if (d.r < 21.5) {return d.y + d.r + 10;}; return d.y; })
+            .attr("dy", "-.35em")
             .attr("text-anchor", "middle")
-            .text(function(d) { if (d.children) {return d.name;}; return d.name.split('\n')[1]; })
+            .text(function(d) { if (d.children) {return d.name;}; return d.name.split('\n').slice(1,3).join('\n'); })
             .call(wrap);
     });
 }
