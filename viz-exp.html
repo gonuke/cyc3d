@@ -89,11 +89,11 @@
 
   <div class="legendrow">
       <div class="slider" id="info">
-        Use this slider to 
         <div id="dynamic">
+          Use this slider to </br>
           <label for=yearsel><b>Year:</b> 2000</label>
           <input type=range min=2000 max=2100 value=2000 id=yearsel step=1 
-                 onchange="yearUpdate(value)" autocomplete="off">
+                 oninput="yearUpdate(value)" autocomplete="off">
           2100<br/>
           <output for=yearsel id=yearlabel>2000</output>
         </div>
