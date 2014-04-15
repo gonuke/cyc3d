@@ -8,7 +8,8 @@ from pprint import pprint
 
 import numpy as np
 
-from tools import diff_last, cost_val, load_kind, label_kind, MAX_WASTE, MAX_COST
+from tools import diff_last, cost_val, load_kind, label_kind, MAX_WASTE, MAX_COST, \
+    outter_reproccessed
 
 CAT_LABEL = "{0}\n{1}"
 
@@ -33,6 +34,8 @@ def main_by_fc():
              'children': json_at_year(row, ns.kind),}
         j['scale'] = sum([c['size'] for c in j['children']]) / \
                      (MAX_COST if ns.kind == "cost" else MAX_WASTE)
+        if ns.kind == 'waste':
+            outter_reproccessed(j['children'])
         jfname = jfname_template.format(fbase, row['year'], ns.kind)
         s = json.dumps(j)
         with open(jfname, 'w') as f:
