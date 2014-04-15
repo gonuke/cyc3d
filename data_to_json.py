@@ -22,7 +22,7 @@ def main():
     ns = parser.parse_args()
     data = load_kind(ns.filename, ns.kind)
     dates = map(year_to_ms, data['year'])
-    j = [{"key": k, "values": zip(dates, np.asarray(data[k], 'f8'))} \
+    j = [{"key": k, "values": zip(dates, np.asarray(data[k], 'i8'))} \
          for k in data.dtype.names[1:]]
     jfname = "{0}-{1}.json".format(os.path.splitext(ns.filename)[0], ns.kind)
     with open(jfname, 'w') as f:
